@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Diagnósticos enviados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#00F5A0; --green-ink:#00B87A; --black:#0A0A0A; --white:#FFF; --g50:#F4F4F4; --g200:#E0E0E0; --g400:#9A9A9A; --g600:#555; --red:#E5484D; --amber:#F5A524;
+    --display:"Space Grotesk",system-ui,sans-serif; --body:"Satoshi",system-ui,sans-serif; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--white); color:var(--black); font-family:var(--body); font-size:15px; line-height:1.45; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 16px; }
+  header { background:var(--black); color:var(--white); padding:32px 0 28px; }
+  header .eyebrow { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); }
+  h1 { font-family:var(--display); font-weight:600; font-size:36px; letter-spacing:-.02em; line-height:1.05; margin-top:10px; text-transform:lowercase; }
+  .stats { display:flex; gap:28px; margin-top:20px; color:var(--g400); font-size:14px; flex-wrap:wrap; }
+  .stats b { font-family:var(--display); font-size:22px; color:var(--white); font-weight:600; margin-right:6px; }
+  .tools { padding:20px 0 8px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  input { flex:1; min-width:200px; font:inherit; padding:10px 14px; border:1px solid var(--g200); border-radius:10px; outline:none; }
+  input:focus { border-color:var(--black); }
+  .f { font:inherit; font-size:13px; font-weight:700; padding:8px 12px; border-radius:999px; border:1px solid var(--g200); background:var(--white); cursor:pointer; }
+  .f[aria-pressed="true"] { background:var(--black); color:var(--white); border-color:var(--black); }
+  .list { padding:8px 0 48px; }
+  .row { display:grid; grid-template-columns: 1fr 110px 110px 100px 140px; gap:12px; align-items:center; padding:16px 12px; border-bottom:1px solid var(--g200); color:inherit; text-decoration:none; border-radius:10px; }
+  .row:hover { background:var(--g50); }
+  .row span { display:block; font-size:12px; color:var(--g600); }
+  .c-nome strong { font-weight:700; }
+  .c-num b, .c-data b { font-family:var(--display); font-weight:600; font-size:18px; }
+  .c-status { text-align:right; }
+  .chip { display:inline-block !important; font-size:12px !important; font-weight:700; padding:4px 10px; border-radius:999px; background:#E6FFF4; color:#00754E !important; white-space:nowrap; }
+  .chip.soon { background:#FFF4E0; color:#8A5A00 !important; }
+  .chip.off { background:#FDECEC; color:#B42318 !important; }
+  .chip.none { background:var(--g50); color:var(--g600) !important; }
+  .row.hide { display:none; }
+  .empty { padding:24px 12px; color:var(--g600); display:none; }
+  footer { color:var(--g400); font-size:12px; padding:0 0 32px; }
+  @media (max-width:720px) {
+    h1 { font-size:28px; }
+    .row { grid-template-columns: 1fr 1fr 1fr; row-gap:8px; padding:14px 8px; }
+    .c-nome { grid-column:1 / -1; }
+    .c-status { grid-column:1 / -1; text-align:left; }
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">Pine · uso interno</div>
+  <h1>diagnósticos enviados</h1>
+  <div class="stats"><div><b id="n-total">11</b>no total</div><div><b id="n-ar">–</b>no ar</div><div><b id="n-soon">–</b>saem em até 15 dias</div><div><b id="n-off">–</b>expirados</div></div>
+</div></header>
+<main class="wrap">
+  <div class="tools">
+    <input id="q" type="search" placeholder="Buscar clínica, cidade ou busca" aria-label="Buscar">
+    <button class="f" data-f="todos" aria-pressed="true">Todos</button>
+    <button class="f" data-f="ar" aria-pressed="false">No ar</button>
+    <button class="f" data-f="off" aria-pressed="false">Expirados</button>
+  </div>
+  <div class="list">
+      <a class="row" href="../cesom-odontologia/" target="_blank" rel="noopener" data-busca="cesom odontologia nova odessa odontologia estética" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Cesom Odontologia</strong><span>Nova Odessa · “odontologia estética”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>92%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../david-moratti/" target="_blank" rel="noopener" data-busca="dr. david moratti americana dentista" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Dr. David Moratti</strong><span>Americana · “dentista”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>92%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../felipe-pego-braga/" target="_blank" rel="noopener" data-busca="dr. felipe pego braga americana dentista" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Dr. Felipe Pego Braga</strong><span>Americana · “dentista”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../jose-antonio-campana/" target="_blank" rel="noopener" data-busca="dr. josé antonio campana americana odontologia estética" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Dr. José Antonio Campana</strong><span>Americana · “odontologia estética”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../camila-quaioti/" target="_blank" rel="noopener" data-busca="dra. camila quaioti americana dentista" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Dra. Camila Quaioti</strong><span>Americana · “dentista”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../karina-zachini/" target="_blank" rel="noopener" data-busca="dra. karina zachini americana ortodontista" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Dra. Karina Zachini</strong><span>Americana · “ortodontista”</span></div>
+        <div class="c-num"><b>18º</b><span>posição média</span></div>
+        <div class="c-num"><b>80%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../ligia-spada/" target="_blank" rel="noopener" data-busca="dra. ligia spada odontologia e harmonização facial santa bárbara d'oeste dentista" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Dra. Ligia Spada Odontologia e Harmonização Facial</strong><span>Santa Bárbara d'Oeste · “dentista”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../oficina-do-dente/" target="_blank" rel="noopener" data-busca="oficina do dente santa bárbara d'oeste dentista" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Oficina do Dente</strong><span>Santa Bárbara d'Oeste · “dentista”</span></div>
+        <div class="c-num"><b>18º</b><span>posição média</span></div>
+        <div class="c-num"><b>64%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../ramos-odontologia/" target="_blank" rel="noopener" data-busca="ramos odontologia americana odontologia estética" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Ramos Odontologia</strong><span>Americana · “odontologia estética”</span></div>
+        <div class="c-num"><b>17º</b><span>posição média</span></div>
+        <div class="c-num"><b>72%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../suzigan-odontologia/" target="_blank" rel="noopener" data-busca="suzigan odontologia e harmonização facial santa bárbara d'oeste odontologia estética" data-exp="2027-02-08">
+        <div class="c-nome"><strong>Suzigan Odontologia e Harmonização Facial</strong><span>Santa Bárbara d'Oeste · “odontologia estética”</span></div>
+        <div class="c-num"><b>17º</b><span>posição média</span></div>
+        <div class="c-num"><b>68%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
+      </a>
+      <a class="row" href="../fernando-feitosa/" target="_blank" rel="noopener" data-busca="fernando feitosa odontologia estética americana odontologia estética" data-exp="">
+        <div class="c-nome"><strong>Fernando Feitosa Odontologia Estética</strong><span>Americana · “odontologia estética”</span></div>
+        <div class="c-num"><b>18º</b><span>posição média</span></div>
+        <div class="c-num"><b>67%</b><span>fora da pág. 1</span></div>
+        <div class="c-data"><b>30/10/2026</b><span>coleta</span></div>
+        <div class="c-status"><span class="chip" data-exp="">sem prazo</span></div>
+      </a>
+    <div class="empty" id="empty">Nada encontrado.</div>
+  </div>
+  <footer>Atualizado em 10/11/2026. Página fora dos buscadores e sem link a partir dos diagnósticos.</footer>
+</main>
+<script>
+  const hoje = Date.now(), DIA = 864e5;
+  let n = { ar:0, soon:0, off:0 };
+  document.querySelectorAll('.row').forEach(r => {
+    const e = r.dataset.exp, c = r.querySelector('.chip');
+    if (!e) { c.classList.add('none'); r.dataset.st = 'ar'; n.ar++; return; }
+    const dias = Math.ceil((new Date(e + 'T23:59:59-03:00') - hoje) / DIA);
+    if (dias < 0) { c.classList.add('off'); c.textContent = 'expirado'; r.dataset.st = 'off'; n.off++; }
+    else { r.dataset.st = 'ar'; n.ar++; c.textContent = dias + (dias === 1 ? ' dia' : ' dias') + ' restantes'; if (dias <= 15) { c.classList.add('soon'); n.soon++; } }
+  });
+  for (const k in n) document.getElementById('n-' + k).textContent = n[k];
+  let filtro = 'todos';
+  const aplicar = () => {
+    const q = document.getElementById('q').value.trim().toLowerCase(); let vis = 0;
+    document.querySelectorAll('.row').forEach(r => { const ok = (!q || r.dataset.busca.includes(q)) && (filtro === 'todos' || r.dataset.st === filtro); r.classList.toggle('hide', !ok); vis += ok; });
+    document.getElementById('empty').style.display = vis ? 'none' : 'block';
+  };
+  document.getElementById('q').addEventListener('input', aplicar);
+  document.querySelectorAll('.f').forEach(b => b.addEventListener('click', () => { filtro = b.dataset.f; document.querySelectorAll('.f').forEach(x => x.setAttribute('aria-pressed', x === b)); aplicar(); }));
+</script>
+</body>
+</html>
