@@ -11,3 +11,7 @@ O arquivo de trabalho fica no workspace privado (`ccos-ratos/briefings/[cliente]
 Cada diagnóstico sai do ar sozinho depois de 90 dias (a data fica no próprio HTML e no rodapé da página). É um bloqueio visual: o arquivo continua aqui até ser apagado. Depois da data, remover a pasta do cliente.
 
 Os HTMLs são gerados por `ccos-ratos/Pine/prospeccao/cartas/gerar-digital.js`.
+
+## Apresentações
+
+A apresentação completa de uma clínica (deck APEX com o diagnóstico) fica em `[cliente]-apresentacao-[código]/`, um link não listado e fora dos buscadores. Ela aparece no painel interno junto do diagnóstico online. Gerada por `ccos-ratos/Pine/metodo-apex/apresentacao/gerar-apresentacao.js`.

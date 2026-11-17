@@ -26,12 +26,17 @@
   .f { font:inherit; font-size:13px; font-weight:700; padding:8px 12px; border-radius:999px; border:1px solid var(--g200); background:var(--white); cursor:pointer; }
   .f[aria-pressed="true"] { background:var(--black); color:var(--white); border-color:var(--black); }
   .list { padding:8px 0 48px; }
-  .row { display:grid; grid-template-columns: 1fr 110px 110px 100px 140px; gap:12px; align-items:center; padding:16px 12px; border-bottom:1px solid var(--g200); color:inherit; text-decoration:none; border-radius:10px; }
+  .row { display:grid; grid-template-columns: 1fr 100px 100px 96px 130px 150px; gap:12px; align-items:center; padding:16px 12px; border-bottom:1px solid var(--g200); color:inherit; text-decoration:none; border-radius:10px; }
   .row:hover { background:var(--g50); }
   .row span { display:block; font-size:12px; color:var(--g600); }
   .c-nome strong { font-weight:700; }
   .c-num b, .c-data b { font-family:var(--display); font-weight:600; font-size:18px; }
   .c-status { text-align:right; }
+  .c-links { display:flex; flex-direction:column; gap:5px; align-items:flex-end; }
+  .c-links a { font-size:12px; font-weight:700; color:var(--black); text-decoration:none; border:1px solid var(--g200); border-radius:999px; padding:4px 10px; white-space:nowrap; }
+  .c-links a:hover { background:var(--green); border-color:var(--green); }
+  .c-links a.ap { background:var(--black); color:var(--white); border-color:var(--black); }
+  .c-links a.ap:hover { background:var(--green); color:var(--black); border-color:var(--green); }
   .chip { display:inline-block !important; font-size:12px !important; font-weight:700; padding:4px 10px; border-radius:999px; background:#E6FFF4; color:#00754E !important; white-space:nowrap; }
   .chip.soon { background:#FFF4E0; color:#8A5A00 !important; }
   .chip.off { background:#FDECEC; color:#B42318 !important; }
@@ -44,6 +49,7 @@
     .row { grid-template-columns: 1fr 1fr 1fr; row-gap:8px; padding:14px 8px; }
     .c-nome { grid-column:1 / -1; }
     .c-status { grid-column:1 / -1; text-align:left; }
+    .c-links { grid-column:1 / -1; flex-direction:row; align-items:flex-start; }
   }
 </style>
 </head>
@@ -61,251 +67,286 @@
     <button class="f" data-f="off" aria-pressed="false">Expirados</button>
   </div>
   <div class="list">
-      <a class="row" href="../implantes-day/" target="_blank" rel="noopener" data-busca="implantes day odontologia americana implante dentário" data-exp="2027-02-15">
-        <div class="c-nome"><strong>Implantes Day Odontologia</strong><span>Americana · “implante dentário”</span></div>
-        <div class="c-num"><b>14º</b><span>posição média</span></div>
-        <div class="c-num"><b>52%</b><span>fora da pág. 1</span></div>
+      <div class="row" data-busca="implantes day odontologia americana dentista" data-exp="2027-02-15">
+        <div class="c-nome"><strong>Implantes Day Odontologia</strong><span>Americana · “dentista”</span></div>
+        <div class="c-num"><b>20º</b><span>posição média</span></div>
+        <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>17/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-15">até 15/02/2027</span></div>
-      </a>
-      <a class="row" href="../belini-odontologia/" target="_blank" rel="noopener" data-busca="belini odontologia nova odessa ortodontista" data-exp="2027-02-11">
+        <div class="c-links"><a href="../implantes-day/" target="_blank" rel="noopener">diagnóstico online</a><a class="ap" href="../implantes-day-apresentacao-36220bf2/" target="_blank" rel="noopener">apresentação</a></div>
+      </div>
+      <div class="row" data-busca="belini odontologia nova odessa ortodontista" data-exp="2027-02-11">
         <div class="c-nome"><strong>Belini Odontologia</strong><span>Nova Odessa · “ortodontista”</span></div>
         <div class="c-num"><b>19º</b><span>posição média</span></div>
         <div class="c-num"><b>88%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../clinica-arana/" target="_blank" rel="noopener" data-busca="clínica arana piracicaba odontologia estética" data-exp="2027-02-11">
+        <div class="c-links"><a href="../belini-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="clínica arana piracicaba odontologia estética" data-exp="2027-02-11">
         <div class="c-nome"><strong>Clínica Arana</strong><span>Piracicaba · “odontologia estética”</span></div>
         <div class="c-num"><b>20+</b><span>posição média</span></div>
         <div class="c-num"><b>100%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../fausto-martins/" target="_blank" rel="noopener" data-busca="dr. fausto martins americana implante dentário" data-exp="2027-02-11">
+        <div class="c-links"><a href="../clinica-arana/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dr. fausto martins americana implante dentário" data-exp="2027-02-11">
         <div class="c-nome"><strong>Dr. Fausto Martins</strong><span>Americana · “implante dentário”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../luiz-henrique-guimaraes/" target="_blank" rel="noopener" data-busca="dr. luiz henrique guimarães limeira odontologia estética" data-exp="2027-02-11">
+        <div class="c-links"><a href="../fausto-martins/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dr. luiz henrique guimarães limeira odontologia estética" data-exp="2027-02-11">
         <div class="c-nome"><strong>Dr. Luiz Henrique Guimarães</strong><span>Limeira · “odontologia estética”</span></div>
         <div class="c-num"><b>20+</b><span>posição média</span></div>
         <div class="c-num"><b>100%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../patricia-sampaio/" target="_blank" rel="noopener" data-busca="dra. patrícia sampaio piracicaba dentista" data-exp="2027-02-11">
+        <div class="c-links"><a href="../luiz-henrique-guimaraes/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dra. patrícia sampaio piracicaba dentista" data-exp="2027-02-11">
         <div class="c-nome"><strong>Dra. Patrícia Sampaio</strong><span>Piracicaba · “dentista”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>92%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../elroi/" target="_blank" rel="noopener" data-busca="elroi clínica odontológica sumaré implante dentário" data-exp="2027-02-11">
+        <div class="c-links"><a href="../patricia-sampaio/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="elroi clínica odontológica sumaré implante dentário" data-exp="2027-02-11">
         <div class="c-nome"><strong>Elroi Clínica Odontológica</strong><span>Sumaré · “implante dentário”</span></div>
         <div class="c-num"><b>19º</b><span>posição média</span></div>
         <div class="c-num"><b>80%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../luciana-costa/" target="_blank" rel="noopener" data-busca="espaço sorriso dra. luciana costa sumaré implante dentário" data-exp="2027-02-11">
+        <div class="c-links"><a href="../elroi/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="espaço sorriso dra. luciana costa sumaré implante dentário" data-exp="2027-02-11">
         <div class="c-nome"><strong>Espaço Sorriso Dra. Luciana Costa</strong><span>Sumaré · “implante dentário”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>92%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../larissa-brunca/" target="_blank" rel="noopener" data-busca="instituto larissa brunca sumaré odontologia estética" data-exp="2027-02-11">
+        <div class="c-links"><a href="../luciana-costa/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="instituto larissa brunca sumaré odontologia estética" data-exp="2027-02-11">
         <div class="c-nome"><strong>Instituto Larissa Brunca</strong><span>Sumaré · “odontologia estética”</span></div>
         <div class="c-num"><b>18º</b><span>posição média</span></div>
         <div class="c-num"><b>68%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../mm-odontologia/" target="_blank" rel="noopener" data-busca="mm odontologia premium limeira odontologia estética" data-exp="2027-02-11">
+        <div class="c-links"><a href="../larissa-brunca/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="mm odontologia premium limeira odontologia estética" data-exp="2027-02-11">
         <div class="c-nome"><strong>MM Odontologia Premium</strong><span>Limeira · “odontologia estética”</span></div>
         <div class="c-num"><b>17º</b><span>posição média</span></div>
         <div class="c-num"><b>64%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../neo-risus/" target="_blank" rel="noopener" data-busca="neo risus clínicas odontológicas limeira implante dentário" data-exp="2027-02-11">
+        <div class="c-links"><a href="../mm-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="neo risus clínicas odontológicas limeira implante dentário" data-exp="2027-02-11">
         <div class="c-nome"><strong>Neo Risus Clínicas Odontológicas</strong><span>Limeira · “implante dentário”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../odonto-santos/" target="_blank" rel="noopener" data-busca="odonto santos piracicaba implante dentário" data-exp="2027-02-11">
+        <div class="c-links"><a href="../neo-risus/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="odonto santos piracicaba implante dentário" data-exp="2027-02-11">
         <div class="c-nome"><strong>Odonto Santos</strong><span>Piracicaba · “implante dentário”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../odonto-selfie/" target="_blank" rel="noopener" data-busca="odonto selfie odontologia integrada sumaré implante dentário" data-exp="2027-02-11">
+        <div class="c-links"><a href="../odonto-santos/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="odonto selfie odontologia integrada sumaré implante dentário" data-exp="2027-02-11">
         <div class="c-nome"><strong>Odonto Selfie Odontologia Integrada</strong><span>Sumaré · “implante dentário”</span></div>
         <div class="c-num"><b>19º</b><span>posição média</span></div>
         <div class="c-num"><b>80%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../odontologia-nogueira/" target="_blank" rel="noopener" data-busca="odontologia nogueira piracicaba odontologia estética" data-exp="2027-02-11">
+        <div class="c-links"><a href="../odonto-selfie/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="odontologia nogueira piracicaba odontologia estética" data-exp="2027-02-11">
         <div class="c-nome"><strong>Odontologia Nogueira</strong><span>Piracicaba · “odontologia estética”</span></div>
         <div class="c-num"><b>20+</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../procopio-odontologia/" target="_blank" rel="noopener" data-busca="procópio odontologia nova odessa dentista" data-exp="2027-02-11">
+        <div class="c-links"><a href="../odontologia-nogueira/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="procópio odontologia nova odessa dentista" data-exp="2027-02-11">
         <div class="c-nome"><strong>Procópio Odontologia</strong><span>Nova Odessa · “dentista”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../tehari-odontologia/" target="_blank" rel="noopener" data-busca="tehari odontologia americana odontologia estética" data-exp="2027-02-11">
+        <div class="c-links"><a href="../procopio-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="tehari odontologia americana odontologia estética" data-exp="2027-02-11">
         <div class="c-nome"><strong>Tehari Odontologia</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>20+</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>12/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-11">até 11/02/2027</span></div>
-      </a>
-      <a class="row" href="../almeida-odontologia/" target="_blank" rel="noopener" data-busca="almeida odontologia americana invisalign" data-exp="2027-02-09">
+        <div class="c-links"><a href="../tehari-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="almeida odontologia americana invisalign" data-exp="2027-02-09">
         <div class="c-nome"><strong>Almeida Odontologia</strong><span>Americana · “invisalign”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>84%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../fregonesi-odontologia/" target="_blank" rel="noopener" data-busca="clínica fregonesi de odontologia americana odontologia estética" data-exp="2027-02-09">
+        <div class="c-links"><a href="../almeida-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="clínica fregonesi de odontologia americana odontologia estética" data-exp="2027-02-09">
         <div class="c-nome"><strong>Clínica Fregonesi de Odontologia</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>20+</b><span>posição média</span></div>
         <div class="c-num"><b>100%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../integral-odontologia/" target="_blank" rel="noopener" data-busca="clínica integral odontologia americana odontologia estética" data-exp="2027-02-09">
+        <div class="c-links"><a href="../fregonesi-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="clínica integral odontologia americana odontologia estética" data-exp="2027-02-09">
         <div class="c-nome"><strong>Clínica Integral Odontologia</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../caio-accarini/" target="_blank" rel="noopener" data-busca="dr. caio accarini odontologia americana implante dentário" data-exp="2027-02-09">
+        <div class="c-links"><a href="../integral-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dr. caio accarini odontologia americana implante dentário" data-exp="2027-02-09">
         <div class="c-nome"><strong>Dr. Caio Accarini Odontologia</strong><span>Americana · “implante dentário”</span></div>
         <div class="c-num"><b>18º</b><span>posição média</span></div>
         <div class="c-num"><b>76%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../adriana-siriani/" target="_blank" rel="noopener" data-busca="dra. adriana siriani americana odontologia estética" data-exp="2027-02-09">
+        <div class="c-links"><a href="../caio-accarini/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dra. adriana siriani americana odontologia estética" data-exp="2027-02-09">
         <div class="c-nome"><strong>Dra. Adriana Siriani</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>88%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../daniela-calleff/" target="_blank" rel="noopener" data-busca="dra. daniela calleff implantes santa bárbara d'oeste implante dentário" data-exp="2027-02-09">
+        <div class="c-links"><a href="../adriana-siriani/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dra. daniela calleff implantes santa bárbara d'oeste implante dentário" data-exp="2027-02-09">
         <div class="c-nome"><strong>Dra. Daniela Calleff Implantes</strong><span>Santa Bárbara d'Oeste · “implante dentário”</span></div>
         <div class="c-num"><b>18º</b><span>posição média</span></div>
         <div class="c-num"><b>68%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../milano-odontologia/" target="_blank" rel="noopener" data-busca="milano odontologia integrada americana odontologia estética" data-exp="2027-02-09">
+        <div class="c-links"><a href="../daniela-calleff/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="milano odontologia integrada americana odontologia estética" data-exp="2027-02-09">
         <div class="c-nome"><strong>Milano Odontologia Integrada</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../oral-white/" target="_blank" rel="noopener" data-busca="oral white odontologia santa bárbara d'oeste odontologia estética" data-exp="2027-02-09">
+        <div class="c-links"><a href="../milano-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="oral white odontologia santa bárbara d'oeste odontologia estética" data-exp="2027-02-09">
         <div class="c-nome"><strong>Oral White Odontologia</strong><span>Santa Bárbara d'Oeste · “odontologia estética”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>11/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-09">até 09/02/2027</span></div>
-      </a>
-      <a class="row" href="../cesom-odontologia/" target="_blank" rel="noopener" data-busca="cesom odontologia nova odessa odontologia estética" data-exp="2027-02-08">
+        <div class="c-links"><a href="../oral-white/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="cesom odontologia nova odessa odontologia estética" data-exp="2027-02-08">
         <div class="c-nome"><strong>Cesom Odontologia</strong><span>Nova Odessa · “odontologia estética”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>92%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../david-moratti/" target="_blank" rel="noopener" data-busca="dr. david moratti americana dentista" data-exp="2027-02-08">
+        <div class="c-links"><a href="../cesom-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dr. david moratti americana dentista" data-exp="2027-02-08">
         <div class="c-nome"><strong>Dr. David Moratti</strong><span>Americana · “dentista”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>92%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../felipe-pego-braga/" target="_blank" rel="noopener" data-busca="dr. felipe pego braga americana dentista" data-exp="2027-02-08">
+        <div class="c-links"><a href="../david-moratti/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dr. felipe pego braga americana dentista" data-exp="2027-02-08">
         <div class="c-nome"><strong>Dr. Felipe Pego Braga</strong><span>Americana · “dentista”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../jose-antonio-campana/" target="_blank" rel="noopener" data-busca="dr. josé antonio campana americana odontologia estética" data-exp="2027-02-08">
+        <div class="c-links"><a href="../felipe-pego-braga/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dr. josé antonio campana americana odontologia estética" data-exp="2027-02-08">
         <div class="c-nome"><strong>Dr. José Antonio Campana</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../camila-quaioti/" target="_blank" rel="noopener" data-busca="dra. camila quaioti americana dentista" data-exp="2027-02-08">
+        <div class="c-links"><a href="../jose-antonio-campana/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dra. camila quaioti americana dentista" data-exp="2027-02-08">
         <div class="c-nome"><strong>Dra. Camila Quaioti</strong><span>Americana · “dentista”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../karina-zachini/" target="_blank" rel="noopener" data-busca="dra. karina zachini americana ortodontista" data-exp="2027-02-08">
+        <div class="c-links"><a href="../camila-quaioti/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dra. karina zachini americana ortodontista" data-exp="2027-02-08">
         <div class="c-nome"><strong>Dra. Karina Zachini</strong><span>Americana · “ortodontista”</span></div>
         <div class="c-num"><b>18º</b><span>posição média</span></div>
         <div class="c-num"><b>80%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../ligia-spada/" target="_blank" rel="noopener" data-busca="dra. ligia spada odontologia e harmonização facial santa bárbara d'oeste dentista" data-exp="2027-02-08">
+        <div class="c-links"><a href="../karina-zachini/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="dra. ligia spada odontologia e harmonização facial santa bárbara d'oeste dentista" data-exp="2027-02-08">
         <div class="c-nome"><strong>Dra. Ligia Spada Odontologia e Harmonização Facial</strong><span>Santa Bárbara d'Oeste · “dentista”</span></div>
         <div class="c-num"><b>20º</b><span>posição média</span></div>
         <div class="c-num"><b>96%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../oficina-do-dente/" target="_blank" rel="noopener" data-busca="oficina do dente santa bárbara d'oeste dentista" data-exp="2027-02-08">
+        <div class="c-links"><a href="../ligia-spada/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="oficina do dente santa bárbara d'oeste dentista" data-exp="2027-02-08">
         <div class="c-nome"><strong>Oficina do Dente</strong><span>Santa Bárbara d'Oeste · “dentista”</span></div>
         <div class="c-num"><b>18º</b><span>posição média</span></div>
         <div class="c-num"><b>64%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../ramos-odontologia/" target="_blank" rel="noopener" data-busca="ramos odontologia americana odontologia estética" data-exp="2027-02-08">
+        <div class="c-links"><a href="../oficina-do-dente/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="ramos odontologia americana odontologia estética" data-exp="2027-02-08">
         <div class="c-nome"><strong>Ramos Odontologia</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>17º</b><span>posição média</span></div>
         <div class="c-num"><b>72%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../suzigan-odontologia/" target="_blank" rel="noopener" data-busca="suzigan odontologia e harmonização facial santa bárbara d'oeste odontologia estética" data-exp="2027-02-08">
+        <div class="c-links"><a href="../ramos-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="suzigan odontologia e harmonização facial santa bárbara d'oeste odontologia estética" data-exp="2027-02-08">
         <div class="c-nome"><strong>Suzigan Odontologia e Harmonização Facial</strong><span>Santa Bárbara d'Oeste · “odontologia estética”</span></div>
         <div class="c-num"><b>17º</b><span>posição média</span></div>
         <div class="c-num"><b>68%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>09/11/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="2027-02-08">até 08/02/2027</span></div>
-      </a>
-      <a class="row" href="../fernando-feitosa/" target="_blank" rel="noopener" data-busca="fernando feitosa odontologia estética americana odontologia estética" data-exp="">
+        <div class="c-links"><a href="../suzigan-odontologia/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
+      <div class="row" data-busca="fernando feitosa odontologia estética americana odontologia estética" data-exp="">
         <div class="c-nome"><strong>Fernando Feitosa Odontologia Estética</strong><span>Americana · “odontologia estética”</span></div>
         <div class="c-num"><b>18º</b><span>posição média</span></div>
         <div class="c-num"><b>67%</b><span>fora da pág. 1</span></div>
         <div class="c-data"><b>30/10/2026</b><span>coleta</span></div>
         <div class="c-status"><span class="chip" data-exp="">sem prazo</span></div>
-      </a>
+        <div class="c-links"><a href="../fernando-feitosa/" target="_blank" rel="noopener">diagnóstico online</a></div>
+      </div>
     <div class="empty" id="empty">Nada encontrado.</div>
   </div>
   <footer>Atualizado em 17/11/2026. Página fora dos buscadores e sem link a partir dos diagnósticos.</footer>
