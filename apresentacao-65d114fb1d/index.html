@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Método APEX · Implantes Day Odontologia</title>
+<meta name="description" content="Método APEX da Pine: marketing e comercial trabalhando juntos para dentistas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Satoshi";src:url(assets/fonts/Satoshi-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Satoshi";src:url(assets/fonts/Satoshi-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Satoshi";src:url(assets/fonts/Satoshi-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Satoshi";src:url(assets/fonts/Satoshi-Italic.otf) format("opentype");font-weight:400;font-style:italic;font-display:swap}
+:root{
+  --green:#00F5A0; --black:#0A0A0A; --white:#FFFFFF;
+  --chip:#EEF1F4; --card:#F4F4F4; --muted:#7A7A7A; --muted-2:#555555; --tree-off:#DADADA;
+  --page:#E9ECEF; --ui:#0A0A0A; --ui-bg:rgba(255,255,255,.85);
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Satoshi",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --page:#111312; --ui:#F2F2F2; --ui-bg:rgba(20,20,20,.8); }
+}
+:root[data-theme="dark"]{ --page:#111312; --ui:#F2F2F2; --ui-bg:rgba(20,20,20,.8); }
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--black);-webkit-font-smoothing:antialiased}
+
+/* palco 1280x720, escalado pra caber na tela */
+.viewport{position:fixed;inset:0;display:grid;place-items:center}
+.stage{position:relative;width:1280px;height:720px;transform-origin:center center;background:var(--white);box-shadow:0 10px 40px rgba(0,0,0,.12);overflow:hidden}
+.slide{position:absolute;inset:0;background:var(--white);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.a{position:absolute}
+
+/* elementos recorrentes */
+.corner{position:absolute;left:1180px;top:67px;width:33px;height:33px}
+.tag{position:absolute;left:138px;top:94px;height:40px;padding:0 22px;border:1px solid var(--green);border-radius:20px;display:flex;align-items:center;font:400 19px/1 var(--body);white-space:nowrap}
+.h1{font:500 46px/1.12 var(--display);letter-spacing:-.005em}
+.g{color:var(--green)}
+.chips{display:flex;flex-wrap:wrap;gap:10px 14px}
+.chip{height:38px;padding:0 22px;border-radius:19px;background:var(--chip);display:flex;align-items:center;font:400 19px/1 var(--body);white-space:nowrap}
+.card-green{position:absolute;left:66px;top:67px;width:1147px;height:586px;border-radius:22px;background:linear-gradient(56deg,var(--green) 16%,#fff 95%)}
+.card-green.capa{background:linear-gradient(40deg,var(--green) 15%,#fff 96%)}
+
+/* árvore */
+.tree{position:absolute;left:440px;top:128px;width:402px;height:462px;-webkit-mask:url(assets/arvore-mask.png) center/100% 100% no-repeat;mask:url(assets/arvore-mask.png) center/100% 100% no-repeat;background:var(--green)}
+.tree.off{background:var(--tree-off)}
+/* destaque por parte: raiz, tronco, copa */
+.tree.raiz,.tree.tronco,.tree.copa{-webkit-mask:url(assets/arvore-mask.png) center/100% 100% no-repeat,var(--part);mask:url(assets/arvore-mask.png) center/100% 100% no-repeat,var(--part);-webkit-mask-composite:source-in;mask-composite:intersect}
+@property --g{syntax:'<percentage>';inherits:true;initial-value:0%}
+@property --k{syntax:'<number>';inherits:true;initial-value:1}
+.tree.raiz{--g:106%;--part:linear-gradient(to bottom,transparent 71%,#000 79%,#000 var(--g),transparent calc(var(--g) + 6%))}
+.tree.tronco{--k:1;--part:radial-gradient(ellipse calc(15% * var(--k)) calc(13% * var(--k)) at 50% 70%,#000 55%,transparent 100%)}
+.tree.copa{--g:108%;--part:linear-gradient(to top,transparent 31%,#000 39%,#000 var(--g),transparent calc(var(--g) + 8%))}
+
+/* ---------- animações ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes card{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes sapDown{from{--g:72%}to{--g:106%}}
+@keyframes sapUp{from{--g:39%}to{--g:108%}}
+@keyframes grow{from{--k:0}to{--k:1}}
+@keyframes travel{0%{offset-distance:0%;opacity:0}8%{opacity:1}100%{offset-distance:100%;opacity:1}}
+.slide.on .an{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 90ms + 150ms)}
+.slide.on .card-green{animation:card .7s cubic-bezier(.2,.7,.2,1) both}
+.slide.on .tree.off{animation:fade .8s ease both}
+.slide.on .lines{animation:fade .6s ease .9s both}
+.slide.on .tree.raiz{animation:sapDown 1.4s cubic-bezier(.3,.6,.2,1) .4s both}
+.slide.on .tree.tronco{animation:grow 1.1s cubic-bezier(.2,.8,.2,1) .4s both}
+.slide.on .tree.copa{animation:sapUp 1.5s cubic-bezier(.3,.6,.2,1) .4s both}
+.slide.on .fruit{animation:pop .55s cubic-bezier(.3,1.5,.5,1) 1s both}
+.slide.on .reveal{animation:reveal 1s cubic-bezier(.6,0,.2,1) .35s both}
+.fruit.travel{left:0;top:0;width:51px;height:54px;offset-path:path('M686 224H437q-20 0-20 20v321q0 20 20 20h148');offset-rotate:0deg;offset-anchor:50% 50%;offset-distance:100%}
+.slide.on .fruit.travel{animation:travel 2.4s cubic-bezier(.55,0,.35,1) 1.4s both}
+@media (prefers-reduced-motion: reduce){.slide.on *{animation:none!important}}
+.fruit{position:absolute;-webkit-mask:url(assets/fruto-mask.png) center/100% 100% no-repeat;mask:url(assets/fruto-mask.png) center/100% 100% no-repeat;background:var(--green)}
+.lines{position:absolute;inset:0;width:1280px;height:720px;pointer-events:none}
+.apexlogo{position:absolute;left:134px;top:298px;width:202px}
+.lead{position:absolute;left:138px;top:406px;width:250px;font:400 19px/27px var(--display);color:var(--muted)}
+.lead b{font-weight:500;color:var(--muted-2)}
+
+.pillar{position:absolute;left:893px;display:grid;grid-template-columns:44px 1fr;column-gap:23px;align-items:start}
+.letter{display:flex;flex-direction:column;align-items:center}
+.letter span{display:block;font:700 58px/1 var(--display);color:var(--green);transform:rotate(-90deg);height:44px;width:44px;display:flex;align-items:center;justify-content:center}
+.letter small{margin-top:9px;font:500 10px/1 var(--display);letter-spacing:.12em;color:#BDBDBD}
+.pillar h3{font:400 26px/1.1 var(--display);margin-top:-2px}
+.pillar p{font:400 15px/1.1 var(--body);margin-top:9px}
+
+.box{position:absolute;left:866px;width:300px;border-radius:22px;background:var(--chip);padding:44px 36px 40px 38px;display:flex;flex-direction:column;gap:18px}
+.box li{list-style:none;display:grid;grid-template-columns:18px 1fr;column-gap:13px;font:400 15.5px/1.38 var(--body)}
+.box li.quatro{display:block;margin-top:4px;padding-top:18px;border-top:1px solid #D5D8DC;font:400 14.5px/1.4 var(--body);color:var(--muted-2)}
+.box li.quatro small{display:block;margin-bottom:6px;font:500 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--black)}
+.ico{width:18px;height:18px;margin-top:2px}
+
+/* investimento */
+.price{position:absolute;left:0;right:0;text-align:center}
+
+/* passos */
+.steps{position:absolute;left:138px;top:300px;display:grid;grid-template-columns:repeat(4,240px);gap:18px}
+.step{position:relative;height:214px;border-radius:20px;background:var(--card);padding:52px 24px 0}
+.step.on2{background:var(--green)}
+.step .ico{position:absolute;right:22px;top:22px;width:20px;height:20px}
+.step .n{font:500 20px/1 var(--display);color:var(--green);height:24px}
+.step.on2 .n{color:var(--white);letter-spacing:.3em}
+.step h4{font:500 20px/1.1 var(--display);margin-top:12px}
+.step p{font:400 16px/1.45 var(--body);color:var(--muted);margin-top:10px}
+.step.on2 p{color:#1d6d50}
+
+.contacts{position:absolute;left:864px;top:328px;display:flex;flex-direction:column;gap:3px;font:400 20px/1 var(--body)}
+.contacts a{color:inherit;text-decoration:none;display:flex;align-items:center;gap:8px}
+.contacts svg{width:16px;height:16px}
+
+/* quem somos */
+.person{position:absolute;top:96px;width:280px}
+.person img,.person .ph{display:block;width:280px;height:360px}
+.person .ph{position:relative}
+.person .ph::before{content:"";position:absolute;left:0;right:0;top:164px;bottom:0;border-radius:15px;background:var(--green)}
+.person .ph span{position:absolute;left:0;right:0;top:250px;text-align:center;font:400 14px/1 var(--body);color:rgba(10,10,10,.5)}
+.person h3{margin-top:20px;font:500 28px/1 var(--display)}
+.pchips{margin-top:14px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.pchips .chip{height:32px;padding:0 16px;font-size:16px}
+
+/* diagnóstico */
+.sub{position:absolute;left:138px;top:220px;font:400 17px/1.3 var(--body);color:var(--muted)}
+.doors{position:absolute;left:138px;top:300px;display:grid;grid-template-columns:repeat(6,157px);gap:14px}
+.door{position:relative;height:200px;border-radius:20px;background:var(--card);padding:22px 18px}
+.door .n{font:500 18px/1 var(--display);color:var(--green)}
+.door h4{font:500 19px/1.1 var(--display);margin-top:30px}
+.door p{font:400 14px/1.35 var(--body);color:var(--muted);margin-top:8px}
+.door .st{position:absolute;left:18px;bottom:18px}
+.door.big{outline:2px solid var(--black);outline-offset:-2px}
+.st{display:inline-flex;align-items:center;gap:7px;font:500 13px/1 var(--body)}
+.st::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.st.pendente{--c:#C9CDD2;color:#9A9A9A}.st.ok{--c:#00F5A0}.st.atencao{--c:#FFB020}.st.critico{--c:#FF5A4E}
+.big-num{position:absolute;left:138px;top:282px;font:500 64px/1 var(--display);letter-spacing:-.01em}
+.big-txt{position:absolute;left:138px;top:360px;width:420px;font:400 18px/1.4 var(--body)}
+.rows{position:absolute;left:606px;top:250px;width:546px}
+.row{display:grid;grid-template-columns:1fr 100px 146px 78px;align-items:center;column-gap:12px;height:48px;border-bottom:1px solid #E6E8EB;font:400 15px/1.2 var(--body)}
+.row.head{height:30px;font:500 12px/1 var(--body);color:var(--muted);letter-spacing:.04em;text-transform:uppercase;border-bottom-color:#D5D8DC}
+.row .ref{color:var(--muted)}
+.row .hoje{font-weight:500}
+.grid49{position:absolute;left:138px;top:440px;display:grid;grid-template-columns:repeat(7,18px);gap:6px}
+.grid49 i{width:18px;height:18px;border-radius:50%;background:var(--c,#E6E8EB);display:grid;place-items:center;font:500 8px/1 var(--body);font-style:normal;color:#0A0A0A}
+.grid49 i.me{outline:2px solid #0A0A0A;outline-offset:1px}
+.legend{position:absolute;left:330px;top:446px;display:flex;flex-direction:column;gap:8px;font:400 13px/1 var(--body);color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend b{width:12px;height:12px;border-radius:50%;background:var(--c)}
+.journey{position:absolute;left:138px;top:618px;width:1014px;display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid #E6E8EB;padding-top:12px;font:400 13px/1 var(--body);color:#B3B3B3}
+.journey span{display:flex;align-items:center;gap:7px}
+.journey span::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.journey .on{color:var(--black);font-weight:500}
+.journey .on::before{background:var(--green)}
+.callout{position:absolute;left:138px;top:544px;width:1014px;border-radius:20px;background:var(--black);color:#fff;padding:22px 28px;display:grid;grid-template-columns:auto 1fr;column-gap:28px;align-items:center}
+.callout small{font:500 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.callout b{display:block;font:500 24px/1.1 var(--display);margin-top:8px}
+.callout p{font:400 16px/1.45 var(--body);color:#CFCFCF}
+.src{position:absolute;right:128px;top:226px;font:400 12px/1 var(--body);color:#B3B3B3}
+
+.mapimg{left:138px;top:282px;width:480px;height:320px;object-fit:cover;border-radius:16px;border:1px solid #E6E8EB}
+.stats{position:absolute;left:670px;top:282px;width:482px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--card);border-radius:18px;padding:18px 20px 16px;min-height:150px}
+.stat b{display:block;font:500 40px/1 var(--display);letter-spacing:-.01em}
+.stat p{margin-top:10px;font:400 14.5px/1.35 var(--body);color:var(--muted-2)}
+.stat .st{margin-top:12px}
+.maplegend{position:absolute;left:138px;top:610px;display:none}
+.rank{position:absolute;left:138px;top:284px;width:1014px}
+.rrow{display:grid;grid-template-columns:60px 1fr 140px 120px;align-items:center;height:50px;border-bottom:1px solid #E6E8EB;padding:0 16px;font:400 16px/1.2 var(--body)}
+.rrow.head{height:32px;font:500 12px/1 var(--body);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border-bottom-color:#D5D8DC}
+.rrow.you{background:#E6FEF4;border-radius:12px;border-bottom:none;font-weight:500}
+.rrow span:nth-child(3),.rrow span:nth-child(4){text-align:right}
+.insight{left:138px;top:578px;width:1014px;font:400 18px/1.45 var(--body);color:var(--muted-2)}
+.rows.tight .row{height:44px}
+.rows.tight{top:244px}
+
+/* navegação */
+.nav{position:fixed;right:16px;bottom:16px;display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:var(--ui-bg);color:var(--ui);backdrop-filter:blur(8px);font:500 13px/1 var(--body);opacity:.35;transition:opacity .2s}
+.nav:hover,.nav:focus-within{opacity:1}
+.nav button{all:unset;cursor:pointer;width:32px;height:32px;border-radius:50%;display:grid;place-items:center}
+.nav button:hover{background:rgba(127,127,127,.18)}
+.nav button:focus-visible{outline:2px solid var(--green)}
+.nav .count{min-width:46px;text-align:center;font-variant-numeric:tabular-nums}
+.progress{position:fixed;left:0;bottom:0;height:3px;background:var(--green);transition:width .3s}
+@media (prefers-reduced-motion: reduce){.slide,.slide.on,.progress{transition:none}}
+
+.quotes{position:absolute;left:138px;top:446px;width:430px;display:grid;gap:10px}
+.q{background:var(--card);border-radius:14px;padding:11px 16px}
+.q small{font:500 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;color:#00B87A}
+.q p{font:400 15px/1.35 var(--body);margin-top:6px}
+.alerta{position:absolute;left:606px;top:500px;width:546px;border-left:3px solid #D93025;padding:6px 14px;font:400 15px/1.4 var(--body);color:var(--muted-2)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 34 34"><path d="M2 32 32 2M7 2h25v25" fill="none" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="arrow-s" viewBox="0 0 18 18"><path d="M1.5 16.5 16.5 1.5M4 1.5h12.5V14" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 8 5 1 9" fill="none" stroke="#0A0A0A" stroke-width="1.3"/></marker>
+  </defs>
+</svg>
+
+<div class="viewport">
+<main class="stage" id="stage" aria-live="polite">
+
+  <!-- 01 capa -->
+  <section class="slide" aria-label="Capa">
+    <div class="card-green capa"></div>
+    <div class="a" style="left:138px;top:135px;font:400 15px/1 var(--body);color:#fff">método APEX</div>
+    <svg class="a" style="left:1118px;top:132px;width:34px;height:34px"><use href="#arrow"/></svg>
+    <h1 class="a h1" style="left:138px;top:296px;font-size:45px;line-height:50px">Fazemos você sorrir com o<br>faturamento da sua clínica.</h1>
+    <div class="a" style="left:138px;top:413px;font:400 19px/1 var(--body);color:#fff">marketing para dentistas</div>
+    <img class="a" src="assets/pine-logo.png" alt="pine" style="left:134px;top:545px;width:151px">
+    <div class="a" style="right:128px;top:572px;font:400 16px/1 var(--body)">2026</div>
+  </section>
+
+  <!-- 02 me conte -->
+  <section class="slide" aria-label="Me conte sobre você e sua clínica">
+    <div class="tag">antes de começar</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a h1" style="left:138px;top:340px">Me conte sobre <span class="g">você</span> e sua <span class="g">clínica</span></h2>
+    <div class="a chips" style="left:138px;top:407px;width:800px">
+      <div class="chip">como funciona hoje?</div><div class="chip">o que não funciona bem?</div><div class="chip">o que isso causa?</div><div class="chip">o que mudaria se isso fosse resolvido?</div>
+    </div>
+  </section>
+
+  <!-- 03 Akira -->
+  <section class="slide" aria-label="Quem somos">
+    <div class="tag">antes de começar</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a" style="left:138px;top:250px;width:390px;font:500 36px/1.18 var(--display)">Esgotamos a agenda de uma dentista pelos próximos <span class="g">2 meses</span>.</h2>
+    <p class="a" style="left:138px;top:400px;width:390px;font:400 19px/1.4 var(--body);color:var(--muted)">Ali percebemos que tínhamos um método.</p>
+    <div class="person" style="left:590px">
+      <img src="assets/akira.png" alt="Cesar Akira">
+      <h3><span class="g">Cesar</span> Akira</h3>
+      <div class="pchips"><div class="chip">12 anos de publicidade</div><div class="chip">8 anos no mercado digital</div><div class="chip">MBA em marketing digital</div></div>
+    </div>
+    <div class="person" style="left:900px">
+      <img src="assets/guilherme.png" alt="Guilherme Monte">
+      <h3><span class="g">Guilherme</span> Monte</h3>
+      <div class="pchips"><div class="chip">5 anos de publicidade</div><div class="chip">5 anos de marketing digital</div></div>
+    </div>
+  </section>
+
+  <!-- 04 dores -->
+  <section class="slide" aria-label="Problemas">
+    <div class="tag">isso soa familiar?</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a h1" style="left:138px;top:340px">Algum desses <span class="g">problemas</span> acontece por aí?</h2>
+    <div class="a chips" style="left:138px;top:407px;width:860px">
+      <div class="chip">refém da indicação</div><div class="chip">muito curioso, pouco paciente</div><div class="chip">muita falta na avaliação</div><div class="chip">avaliação que não fecha</div>
+    </div>
+  </section>
+
+  <!-- 05 diagnóstico: slides gerados a partir do bloco DIAGNÓSTICO no fim do arquivo -->
+  <template id="diag-slot"></template>
+
+  <!-- 06 marketing -->
+  <section class="slide" aria-label="O que é marketing">
+    <div class="tag">uma pergunta rápida</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a h1" style="left:138px;top:340px">Pra você, o que é marketing?</h2>
+  </section>
+
+  <!-- 07 o método -->
+  <section class="slide" aria-label="O método">
+    <div class="a" style="left:66px;top:66px;width:1148px;height:588px;border:1px solid var(--green);border-radius:22px"></div>
+    <div class="tag" style="left:432px;top:340px;height:40px">o método</div>
+    <img class="a reveal" src="assets/apex-logo.png" alt="APEX" style="left:606px;top:309px;width:242px">
+  </section>
+
+  <!-- 08 árvore -->
+  <section class="slide" aria-label="Método APEX">
+    <div class="tag">o método</div>
+    <img class="apexlogo" src="assets/apex-logo.png" alt="APEX">
+    <p class="lead"><b>Da raiz ao fruto:</b> o método que organiza o marketing e o comercial da clínica.</p>
+    <div class="tree off"></div>
+    <div class="fruit" style="left:652px;top:188px;width:68px;height:72px"></div>
+    <svg class="lines" viewBox="0 0 1280 720">
+      <g fill="none" stroke="#0A0A0A" stroke-width="1" stroke-dasharray="1.5 2.5">
+        <path d="M660 224H437q-20 0-20 20v321q0 20 20 20h148" marker-end="url(#head)"/>
+        <path d="M688 228 852 148"/><path d="M735 280H852"/><path d="M665 440 852 404"/><path d="M640 533H852"/>
+      </g>
+    </svg>
+    <div class="pillar" style="top:133px"><div class="letter"><span>X</span><small>FRUTO</small></div><div><h3>elemento X</h3><p>volta pra raiz e multiplica</p></div></div>
+    <div class="pillar" style="top:264px"><div class="letter"><span>E</span><small>COPA</small></div><div><h3>Experiência</h3><p>encanta quem chegou</p></div></div>
+    <div class="pillar" style="top:389px"><div class="letter"><span>P</span><small>TRONCO</small></div><div><h3>Plano comercial</h3><p>sustenta do agendamento<br>ao fechamento</p></div></div>
+    <div class="pillar" style="top:518px"><div class="letter"><span>A</span><small>RAIZ</small></div><div><h3>Aquisição</h3><p>alimenta a clínica de<br>pacientes novos</p></div></div>
+  </section>
+
+  <!-- 09 A -->
+  <section class="slide" aria-label="Aquisição">
+    <div class="tag">o método</div>
+    <img class="apexlogo" src="assets/apex-logo.png" alt="APEX">
+    <p class="lead"><b>Da raiz ao fruto:</b> o método que organiza o marketing e o comercial da clínica.</p>
+    <div class="tree off"></div><div class="tree raiz"></div>
+    <svg class="lines" viewBox="0 0 1280 720"><path d="M640 533H852" fill="none" stroke="#0A0A0A" stroke-dasharray="1.5 2.5"/></svg>
+    <ul class="box" style="top:174px">
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Gestão de anúncios no Instagram, Facebook e Google</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Google Meu Negócio otimizado</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Criativos de oferta e conteúdos estratégicos para os anúncios</li>
+    </ul>
+    <div class="pillar" style="top:518px"><div class="letter"><span>A</span><small>RAIZ</small></div><div><h3>Aquisição</h3><p>alimenta a clínica de<br>pacientes novos</p></div></div>
+  </section>
+
+  <!-- 10 P -->
+  <section class="slide" aria-label="Plano comercial">
+    <div class="tag">o método</div>
+    <img class="apexlogo" src="assets/apex-logo.png" alt="APEX">
+    <p class="lead"><b>Da raiz ao fruto:</b> o método que organiza o marketing e o comercial da clínica.</p>
+    <div class="tree off"></div><div class="tree tronco"></div>
+    <svg class="lines" viewBox="0 0 1280 720"><path d="M645 433 852 533" fill="none" stroke="#0A0A0A" stroke-dasharray="1.5 2.5"/></svg>
+    <ul class="box" style="top:235px">
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Auditoria do atendimento</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Playbooks de atendimento (responder, agendar, confirmar e fechar)</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Treinamento da equipe</li>
+    </ul>
+    <div class="pillar" style="top:518px"><div class="letter"><span>P</span><small>TRONCO</small></div><div><h3>Plano comercial</h3><p>sustenta do agendamento<br>ao fechamento</p></div></div>
+  </section>
+
+  <!-- 11 E -->
+  <section class="slide" aria-label="Experiência">
+    <div class="tag">o método</div>
+    <img class="apexlogo" src="assets/apex-logo.png" alt="APEX">
+    <p class="lead"><b>Da raiz ao fruto:</b> o método que organiza o marketing e o comercial da clínica.</p>
+    <div class="tree off"></div><div class="tree copa"></div>
+    <svg class="lines" viewBox="0 0 1280 720"><path d="M643 296 852 533" fill="none" stroke="#0A0A0A" stroke-dasharray="1.5 2.5"/></svg>
+    <ul class="box" style="top:150px">
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Mapa da jornada do paciente na clínica</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Padrão de boas-vindas e pós-consulta</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Pesquisa de satisfação</li>
+      <li class="quatro"><small>trabalho a 4 mãos</small>A gente organiza o processo. O atendimento de cada dia é da sua equipe, e ele precisa ser bem feito.</li>
+    </ul>
+    <div class="pillar" style="top:518px"><div class="letter"><span>E</span><small>COPA</small></div><div><h3>Experiência</h3><p>encanta quem chegou</p></div></div>
+  </section>
+
+  <!-- 12 X -->
+  <section class="slide" aria-label="Elemento X">
+    <div class="tag">o método</div>
+    <img class="apexlogo" src="assets/apex-logo.png" alt="APEX">
+    <p class="lead"><b>Da raiz ao fruto:</b> o método que organiza o marketing e o comercial da clínica.</p>
+    <div class="tree off"></div>
+    <svg class="lines" viewBox="0 0 1280 720">
+      <g fill="none" stroke="#0A0A0A" stroke-dasharray="1.5 2.5">
+        <path d="M660 224H437q-20 0-20 20v321q0 20 20 20h148" marker-end="url(#head)"/>
+        <path d="M688 240 852 533"/>
+      </g>
+    </svg>
+    <div class="fruit" style="left:652px;top:188px;width:68px;height:72px"></div>
+    <div class="fruit travel"></div>
+    <ul class="box" style="top:243px">
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Gestão das avaliações no Google</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Ações para quem já é paciente</li>
+      <li><svg class="ico g"><use href="#arrow-s"/></svg>Estratégia de indicação</li>
+    </ul>
+    <div class="pillar" style="top:518px"><div class="letter"><span>X</span><small>FRUTO</small></div><div><h3>elemento X</h3><p>volta pra raiz e multiplica</p></div></div>
+  </section>
+
+  <!-- 13 dúvida -->
+  <section class="slide" aria-label="Dúvidas">
+    <div class="tag">antes de prosseguir</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a h1" style="left:138px;top:340px">Ficou alguma <span class="g">dúvida</span> até aqui?</h2>
+    <div class="a chips" style="left:138px;top:407px;width:960px">
+      <div class="chip">acha que faz sentido pra sua clínica?</div><div class="chip">se não fosse pelo valor, seríamos uma boa opção?</div>
+    </div>
+  </section>
+
+  <!-- 14 informações -->
+  <section class="slide" aria-label="Informações importantes">
+    <div class="tag">importante saber</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a h1" style="left:138px;top:160px;width:720px">Informações importantes antes de prosseguir</h2>
+    <div class="a" data-stagger style="left:138px;top:332px;display:grid;grid-template-columns:525px 1fr;row-gap:44px">
+      <div style="display:grid;grid-template-columns:18px 1fr;column-gap:23px"><svg class="ico g"><use href="#arrow-s"/></svg><div><div style="font:400 20px/1 var(--body)">Sem fidelidade</div><div style="font:400 16px/1 var(--body);color:var(--muted);margin-top:13px">pode encerrar quando quiser, com aviso de 30 dias.</div></div></div>
+      <div style="display:grid;grid-template-columns:18px 1fr;column-gap:23px"><svg class="ico g"><use href="#arrow-s"/></svg><div><div style="font:400 20px/1 var(--body)">Reunião de resultado todo mês</div><div style="font:400 16px/1 var(--body);color:var(--muted);margin-top:13px">a gente mostra os números e ajusta o plano com você.</div></div></div>
+      <div style="display:grid;grid-template-columns:18px 1fr;column-gap:23px"><svg class="ico g"><use href="#arrow-s"/></svg><div><div style="font:400 20px/1 var(--body)">90 dias é o tempo mínimo</div><div style="font:400 16px/1 var(--body);color:var(--muted);margin-top:13px">pro método ser aplicado de verdade.</div></div></div>
+      <div style="display:grid;grid-template-columns:18px 1fr;column-gap:23px"><svg class="ico g"><use href="#arrow-s"/></svg><div><div style="font:400 20px/1 var(--body)">As contas são suas</div><div style="font:400 16px/1 var(--body);color:var(--muted);margin-top:13px">anúncios e dados ficam no nome da clínica.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 15 investimento -->
+  
+
+  <!-- 16 próximos passos -->
+  <section class="slide" aria-label="Próximos passos">
+    <div class="tag">próximos passos</div>
+    <svg class="corner"><use href="#arrow"/></svg>
+    <h2 class="a h1" style="left:138px;top:160px">vamos começar a<br>trabalhar juntos?</h2>
+    <div class="steps">
+      <div class="step"><svg class="ico g"><use href="#arrow-s"/></svg><div class="n">01</div><h4>Contrato</h4><p>Fechamos os termos e assinamos.</p></div>
+      <div class="step"><svg class="ico g"><use href="#arrow-s"/></svg><div class="n">02</div><h4>Primeiros passos</h4><p>Levantamos metas e acessos pra montar o plano de ação.</p></div>
+      <div class="step"><svg class="ico g"><use href="#arrow-s"/></svg><div class="n">03</div><h4>No ar</h4><p>Método APEX rodando na sua clínica.</p></div>
+      <div class="step on2"><svg class="ico"><use href="#arrow-s"/></svg><div class="n">···</div><h4>Melhoria<br>contínua</h4><p style="margin-top:6px">Otimizações constantes em todos os pilares.</p></div>
+    </div>
+    <div class="a" style="left:138px;top:590px;font:500 19px/1 var(--display)">A gente segue ajustando o método com você, mês a mês.</div>
+  </section>
+
+  <!-- 17 contato -->
+  <section class="slide" aria-label="Contato">
+    <div class="card-green"></div>
+    <div class="a" style="left:138px;top:135px;font:400 15px/1 var(--body);color:#fff">método APEX</div>
+    <svg class="a" style="left:1118px;top:132px;width:34px;height:34px"><use href="#arrow"/></svg>
+    <img class="a" src="assets/pine-logo.png" alt="pine" style="left:205px;top:290px;width:151px">
+    <p class="a" style="left:209px;top:353px;font:400 20px/27px var(--display)">Marketing e comercial<br>trabalhando juntos para<br>dentistas</p>
+    <div class="a" style="left:635px;top:260px;width:200px;height:200px;border-radius:22px;background:#fff;display:grid;place-items:center"><img src="assets/qr.png" alt="QR code do WhatsApp da Pine" style="width:172px"></div>
+    <div class="contacts">
+      <a href="https://wa.me/5519999111227" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z" stroke-width="1.4"/></svg>19 99911-1227</a>
+      <a href="https://pine.marketing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>pine.marketing</a>
+      <a href="https://instagram.com/pine.br" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@pine.br</a>
+    </div>
+    <div class="a" style="left:138px;top:572px;font:400 16px/1 var(--body)">2026</div>
+  </section>
+
+</main>
+</div>
+
+<div class="progress" id="progress"></div>
+<nav class="nav" aria-label="Navegação">
+  <button id="prev" aria-label="Slide anterior"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+  <span class="count" id="count">1 / 17</span>
+  <button id="next" aria-label="Próximo slide"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+  <button id="fs" aria-label="Tela cheia"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+</nav>
+
+<!-- =====================================================================
+     DIAGNÓSTICO — trocar este bloco a cada clínica.
+     status: "ok" | "atencao" | "critico" | "pendente"
+     grid: 49 posições no Google Maps (linha a linha, 7x7, centro = clínica); 0 = fora do top 20
+     Valores abaixo: diagnóstico real da Fernando Feitosa (Google, 30/10/2026). "pendente" = ainda não coletado.
+     ===================================================================== -->
+<script id="diag-data" type="application/json">
+{
+  "clinica": "Implantes Day Odontologia",
+  "local": "Americana, SP",
+  "coleta": "17/11/2026",
+  "portas": [
+    {
+      "id": "encontrado",
+      "nome": "Ser encontrado",
+      "canal": "Google Meu Negócio",
+      "status": "critico",
+      "resumo": "em “dentista”, fora da 1ª página em 96% da região"
+    },
+    {
+      "id": "lembrado",
+      "nome": "Ser lembrado",
+      "canal": "Instagram",
+      "status": "pendente",
+      "resumo": "a coletar"
+    },
+    {
+      "id": "escolhido",
+      "nome": "Ser escolhido",
+      "canal": "Site e anúncios",
+      "status": "critico",
+      "resumo": "sem anúncios ativos e sem site próprio no perfil"
+    },
+    {
+      "id": "converter",
+      "nome": "Converter",
+      "canal": "Atendimento no WhatsApp",
+      "status": "pendente",
+      "resumo": "a coletar"
+    },
+    {
+      "id": "voltar",
+      "nome": "Voltar",
+      "canal": "Retorno de pacientes",
+      "status": "pendente",
+      "resumo": "a coletar"
+    },
+    {
+      "id": "indicar",
+      "nome": "Indicar",
+      "canal": "Avaliações e indicações",
+      "status": "atencao",
+      "resumo": "nota 4,9, mas só 18% das avaliações respondidas"
+    }
+  ],
+  "detalhes": [
+    {
+      "porta": "encontrado",
+      "tipo": "mapa",
+      "etapa": "posição no mapa",
+      "titulo": "Hoje, quase ninguém da região <span class='g'>te encontra<\/span>",
+      "canal": "Pesquisamos “dentista” em 25 pontos num raio de 10 km da clínica, como um paciente buscando no celular, e anotamos a posição dela em cada um.",
+      "fonte": "Google Maps · coleta em 17/11/2026",
+      "mapa": "assets/mapa-implantes-day-dentista.jpg",
+      "stats": [
+        {
+          "num": "24 de 25",
+          "txt": "pontos em que a clínica não aparece entre os 3 primeiros",
+          "status": "critico"
+        },
+        {
+          "num": "20º",
+          "txt": "posição média: fora da primeira página"
+        },
+        {
+          "num": "24",
+          "txt": "pontos fora da primeira página (96% da região)"
+        },
+        {
+          "num": "243",
+          "txt": "concorrentes disputando a mesma busca"
+        }
+      ]
+    },
+    {
+      "porta": "encontrado",
+      "tipo": "ranking",
+      "etapa": "concorrência",
+      "titulo": "Quem está ficando com <span class='g'>esses pacientes<\/span>",
+      "canal": "243 negócios apareceram na busca “dentista”. Estes são os que mais aparecem entre os 3 primeiros.",
+      "fonte": "Google Maps · coleta em 17/11/2026",
+      "concorrentes": [
+        {
+          "pos": "1",
+          "nome": "Dra Gabrielle Grivol · Atendimento de urgência",
+          "aval": "84",
+          "top3": "16%"
+        },
+        {
+          "pos": "2",
+          "nome": "PL Odontologia Especializada",
+          "aval": "93",
+          "top3": "16%"
+        },
+        {
+          "pos": "3",
+          "nome": "Dra. Bruna Carvalho",
+          "aval": "33",
+          "top3": "12%"
+        },
+        {
+          "pos": "···",
+          "nome": "",
+          "aval": "",
+          "top3": ""
+        },
+        {
+          "pos": "49",
+          "nome": "Implantes Day Odontologia",
+          "aval": "220",
+          "top3": "4%",
+          "voce": true
+        }
+      ],
+      "insight": "Quem lidera tem entre 33 e 93 avaliações, menos que as 220 da clínica. A diferença está em como o perfil é trabalhado."
+    },
+    {
+      "porta": "encontrado",
+      "tipo": "mapa",
+      "etapa": "posição no mapa · implante",
+      "titulo": "Em implante, a clínica <span class='g'>domina o bairro<\/span>",
+      "canal": "Pesquisamos “implante dentário” em 25 pontos num raio de 10 km da clínica, como um paciente buscando no celular, e anotamos a posição dela em cada um.",
+      "fonte": "Google Maps · coleta em 17/11/2026",
+      "mapa": "assets/mapa-implantes-day.jpg",
+      "stats": [
+        {
+          "num": "6 de 25",
+          "txt": "pontos no top 3, a 2ª clínica que mais aparece",
+          "status": "ok"
+        },
+        {
+          "num": "14º",
+          "txt": "posição média: fim da primeira página"
+        },
+        {
+          "num": "13",
+          "txt": "pontos fora da primeira página (52% da região)"
+        },
+        {
+          "num": "138",
+          "txt": "concorrentes disputando a mesma busca"
+        }
+      ]
+    },
+    {
+      "porta": "encontrado",
+      "etapa": "perfil no Google",
+      "titulo": "O perfil está montado, <span class='g'>mas parado<\/span>",
+      "canal": "Verificamos 12 itens da ficha no Google Meu Negócio.",
+      "fonte": "ficha pública no Google · 17/11/2026",
+      "num": "6 de 12",
+      "txt": "itens pedem atenção. A última postagem no Google foi há 579 dias, e a descrição diz só que a clínica faz “todos os tipos de procedimentos”.",
+      "itens": [
+        {
+          "nome": "Categoria principal",
+          "hoje": "Ortodontista",
+          "ref": "a do tratamento principal",
+          "status": "atencao"
+        },
+        {
+          "nome": "Descrição do perfil",
+          "hoje": "genérica",
+          "ref": "serviços e público",
+          "status": "critico"
+        },
+        {
+          "nome": "Redes sociais na ficha",
+          "hoje": "nenhuma",
+          "ref": "pelo menos 1",
+          "status": "critico"
+        },
+        {
+          "nome": "Fotos da clínica",
+          "hoje": "45",
+          "ref": "100 ou mais",
+          "status": "atencao"
+        },
+        {
+          "nome": "Estacionamento, acessibilidade, pagamento",
+          "hoje": "1 preenchido",
+          "ref": "todos que se aplicam",
+          "status": "atencao"
+        },
+        {
+          "nome": "Última postagem no Google",
+          "hoje": "há 579 dias",
+          "ref": "até 15 dias",
+          "status": "critico"
+        }
+      ],
+      "tight": true
+    },
+    {
+      "porta": "escolhido",
+      "titulo": "Ser <span class='g'>escolhido<\/span>",
+      "canal": "Site e anúncios",
+      "fonte": "bibliotecas de anúncios da Meta e do Google e busca no Google · 17/11/2026",
+      "num": "0",
+      "txt": "anúncios ativos no Instagram, Facebook e Google. E o link do perfil leva a um encurtador (bit.ly), não a um site da clínica.",
+      "itens": [
+        {
+          "nome": "Anúncios no Instagram e Facebook",
+          "hoje": "nenhum",
+          "ref": "por tratamento",
+          "status": "critico"
+        },
+        {
+          "nome": "Anúncios no Google",
+          "hoje": "nenhum",
+          "ref": "nas buscas da região",
+          "status": "critico"
+        },
+        {
+          "nome": "Link do site no perfil",
+          "hoje": "encurtador",
+          "ref": "site próprio",
+          "status": "atencao"
+        },
+        {
+          "nome": "Busca pelo nome da clínica",
+          "hoje": "2º lugar",
+          "ref": "1º lugar",
+          "status": "atencao"
+        }
+      ]
+    },
+    {
+      "porta": "converter",
+      "titulo": "<span class='g'>Converter<\/span>",
+      "canal": "Atendimento no WhatsApp · teste como paciente",
+      "fonte": "a coletar",
+      "num": "—",
+      "txt": "Teste como paciente no WhatsApp da clínica.",
+      "itens": [
+        {
+          "nome": "Primeira resposta",
+          "hoje": "—",
+          "ref": "até 5 min",
+          "status": "pendente"
+        },
+        {
+          "nome": "Convidou pra avaliação",
+          "hoje": "—",
+          "ref": "sim",
+          "status": "pendente"
+        },
+        {
+          "nome": "Ofereceu horários",
+          "hoje": "—",
+          "ref": "2 opções",
+          "status": "pendente"
+        },
+        {
+          "nome": "Retomou a conversa",
+          "hoje": "—",
+          "ref": "em até 24 h",
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "porta": "indicar",
+      "tipo": "avaliacoes",
+      "etapa": "avaliações",
+      "titulo": "Os pacientes elogiam, <span class='g'>mas ninguém responde<\/span>",
+      "canal": "Avaliações públicas no Google: as 100 mais recentes, de 30/08/2024 a 13/11/2026.",
+      "fonte": "Google · 17/11/2026",
+      "num": "4,9",
+      "txt": "de nota em 219 avaliações, 97% com 5 estrelas. A reputação é a porta mais forte da clínica.",
+      "itens": [
+        {
+          "nome": "Avaliações respondidas",
+          "hoje": "18 de 100",
+          "ref": "50% ou mais",
+          "status": "critico"
+        },
+        {
+          "nome": "Notas baixas sem resposta",
+          "hoje": "4 de 4",
+          "ref": "nenhuma",
+          "status": "critico"
+        },
+        {
+          "nome": "Avaliações no último mês",
+          "hoje": "6",
+          "ref": "toda semana",
+          "status": "ok"
+        },
+        {
+          "nome": "Avaliações com texto",
+          "hoje": "60 de 100",
+          "ref": "metade ou mais",
+          "status": "ok"
+        }
+      ],
+      "elogios": [
+        {
+          "tema": "atendimento acolhedor",
+          "mencoes": 34,
+          "citacao": "Atendimento excelente, recepcionista muito atenciosas."
+        },
+        {
+          "tema": "qualidade do tratamento",
+          "mencoes": 20,
+          "citacao": "Tive uma ótima experiência em meu tratamento, ótimo atendimento e resultado."
+        }
+      ],
+      "alerta": "Uma avaliação de 06/11/2026 reclama de horário alterado e de problema com a entrega, e segue sem resposta."
+    }
+  ],
+  "gargalo": {
+    "porta": "encontrado",
+    "titulo": "Mais avaliações que os líderes, e mesmo assim invisível",
+    "txt": "Em “dentista”, fica fora da 1ª página em 96% da região, mesmo com mais avaliações que os 3 líderes. E só 18% das avaliações têm resposta."
+  }
+}
+</script>
+<script>
+(function(){
+  const D=JSON.parse(document.getElementById('diag-data').textContent);
+  const slot=document.getElementById('diag-slot');
+  const lbl={ok:'ok',atencao:'atenção',critico:'crítico',pendente:'a coletar'};
+  const st=s=>`<span class="st ${s}">${lbl[s]}</span>`;
+  const esc=s=>String(s);
+  const head=(tag,total,i)=>`<div class="tag">${tag}</div><svg class="corner"><use href="#arrow"/></svg>`;
+  const journey=cur=>`<div class="journey">${D.portas.map(p=>`<span class="${(p.id===cur||(cur==='voltar'&&p.id==='indicar'))?'on':''}">${p.nome.toLowerCase()}</span>`).join('')}</div>`;
+  const out=[];
+  // abertura: as 6 portas
+  out.push(`<section class="slide" aria-label="Diagnóstico">
+    ${head('o que a internet diz sobre a sua clínica?')}
+    <h2 class="a h1" style="left:138px;top:160px;width:900px">Da busca no Google à indicação, o paciente passa por <span class="g">6 portas</span></h2>
+    <div class="doors">${D.portas.map((p,k)=>`<div class="door"><div class="n">0${k+1}</div><h4>${p.nome}</h4><p>${p.canal}</p></div>`).join('')}</div>
+    <p class="a" style="left:138px;top:540px;font:400 18px/1.4 var(--body);color:var(--muted)">Olhamos cada uma delas na ${esc(D.clinica)}.</p>
+  </section>`);
+  // detalhes (uma porta pode ter vários slides: tipo "mapa", "ranking" ou tabela)
+  const ordem=[...new Set(D.detalhes.map(d=>d.porta))];
+  D.detalhes.forEach(d=>{
+    const n=ordem.indexOf(d.porta)+1;
+    const tag="diagnóstico · "+n+" de "+ordem.length+(d.etapa?" · "+d.etapa:"");
+    const top=`${head(tag)}<h2 class="a h1" style="left:138px;top:160px">${d.titulo}</h2><div class="sub" style="width:640px">${d.canal}</div><div class="src">${d.fonte}</div>`;
+    let body="";
+    if(d.tipo==="mapa"){
+      body=`<img class="a mapimg" src="${d.mapa}" alt="Posição da clínica em 49 pontos do Google Maps">
+        <div class="stats" data-stagger>${d.stats.map(s=>`<div class="stat"><b>${s.num}</b><p>${s.txt}</p>${s.status?st(s.status):""}</div>`).join("")}</div>
+        <div class="maplegend"><span><b style="--c:#22A04B"></b>1º a 3º</span><span><b style="--c:#E5A00D"></b>4º a 10º</span><span><b style="--c:#E8590C"></b>11º a 15º</span><span><b style="--c:#D93025"></b>16º a 20º</span><span><b style="--c:#7A1F1F"></b>fora do top 20</span></div>`;
+    } else if(d.tipo==="ranking"){
+      body=`<div class="rank" data-stagger><div class="rrow head"><span>#</span><span>clínica</span><span>avaliações</span><span>no top 3</span></div>${d.concorrentes.map(c=>`<div class="rrow ${c.voce?"you":""}"><span>${c.pos}</span><span>${c.nome}</span><span>${c.aval}</span><span>${c.top3}</span></div>`).join("")}</div>
+        <p class="a insight">${d.insight}</p>`;
+    } else if(d.tipo==="avaliacoes"){
+      body=`<div class="big-num">${d.num}</div><p class="big-txt">${d.txt}</p>
+        <div class="quotes" data-stagger>${(d.elogios||[]).map(e=>`<div class="q"><small>${e.mencoes} menções · ${e.tema}</small><p>“${e.citacao}”</p></div>`).join("")}</div>
+        <div class="rows" data-stagger><div class="row head"><span>critério</span><span>hoje</span><span>referência</span><span></span></div>${d.itens.map(r=>`<div class="row"><span>${r.nome}</span><span class="hoje">${r.hoje}</span><span class="ref">${r.ref}</span>${st(r.status)}</div>`).join("")}</div>
+        ${d.alerta?`<p class="alerta">${d.alerta}</p>`:""}`;
+    } else {
+      body=`<div class="big-num">${d.num}</div><p class="big-txt">${d.txt}</p>
+        <div class="rows ${d.tight?"tight":""}" data-stagger><div class="row head"><span>critério</span><span>hoje</span><span>referência</span><span></span></div>${d.itens.map(r=>`<div class="row"><span>${r.nome}</span><span class="hoje">${r.hoje}</span><span class="ref">${r.ref}</span>${st(r.status)}</div>`).join("")}</div>`;
+    }
+    out.push(`<section class="slide" aria-label="Diagnóstico: ${d.porta}">${top}${body}${journey(d.porta)}</section>`);
+  });
+  // resumo
+  out.push(`<section class="slide" aria-label="Diagnóstico: resumo">
+    ${head('diagnóstico · resumo')}
+    <h2 class="a h1" style="left:138px;top:160px;width:900px">Onde a clínica está <span class="g">perdendo pacientes</span></h2>
+    <div class="doors" style="top:290px">${D.portas.map((p,k)=>`<div style="height:226px" class="door ${p.id===D.gargalo.porta?'big':''}"><div class="n">0${k+1}</div><h4 style="margin-top:22px">${p.nome}</h4><p>${p.resumo}</p><span class="st ${p.status}">${lbl[p.status]}</span></div>`).join('')}</div>
+    <div class="callout"><div><small>maior oportunidade</small><b>${D.gargalo.titulo}</b></div><p>${D.gargalo.txt}</p></div>
+  </section>`);
+  slot.insertAdjacentHTML('beforebegin',out.join(''));
+  slot.remove();
+})();
+</script>
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const slides=[...stage.querySelectorAll('.slide')];
+  const count=document.getElementById('count'), bar=document.getElementById('progress');
+  let i=0;
+  function fit(){
+    const s=Math.min(window.innerWidth/1280, window.innerHeight/720);
+    stage.style.transform='scale('+s+')';
+  }
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((el,k)=>el.classList.toggle('on',k===i));
+    count.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    try{history.replaceState(null,'','#'+(i+1));}catch(e){}
+  }
+  document.getElementById('prev').onclick=()=>go(i-1);
+  document.getElementById('next').onclick=()=>go(i+1);
+  document.getElementById('fs').onclick=toggleFs;
+  function toggleFs(){
+    try{ if(!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }catch(e){}
+  }
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(i+1);}
+    else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(i-1);}
+    else if(e.key==='Home')go(0);
+    else if(e.key==='End')go(slides.length-1);
+    else if(e.key==='f'||e.key==='F')toggleFs();
+  });
+  stage.addEventListener('click',e=>{
+    if(e.target.closest('a'))return;
+    const r=stage.getBoundingClientRect();
+    go(e.clientX<r.left+r.width*0.3?i-1:i+1);
+  });
+  let x0=null;
+  window.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  window.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?i+1:i-1);x0=null;});
+  // entrada escalonada: cada elemento do slide recebe um índice de atraso
+  slides.forEach(sl=>{
+    let n=0;
+    const tag=el=>{el.classList.add('an');el.style.setProperty('--i',n++);};
+    const pillars=[];
+    [...sl.children].forEach(el=>{
+      if(el.matches('.card-green,.tree,.lines,.fruit,.reveal'))return;
+      if(el.matches('.pillar')){pillars.push(el);return;}
+      if(el.matches('.chips,.box,.steps,.doors,[data-stagger]'))[...el.children].forEach(tag);
+      else tag(el);
+    });
+    // pilares entram de baixo pra cima: raiz → fruto
+    pillars.sort((a,b)=>parseFloat(b.style.top)-parseFloat(a.style.top)).forEach(el=>{el.classList.add('an');el.style.setProperty('--i',n+++2);});
+  });
+  window.addEventListener('resize',fit);
+  window.addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1),10);if(!isNaN(n)&&n-1!==i)go(n-1);});
+  fit();
+  const h=parseInt((location.hash||'').slice(1),10);
+  go(isNaN(h)?0:h-1);
+})();
+</script>
+</body>
+</html>
