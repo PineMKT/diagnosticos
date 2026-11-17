@@ -201,6 +201,12 @@
 
   .ads-note { margin-top: 14px; font-size: 14px; color: var(--gray-600); border-left: 2px solid var(--green-ink); padding-left: 12px; max-width: 640px; }
 
+  .tip .meta { background: #E6FFF4; }
+  .tip .meta b { display: block; color: var(--green-ink); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+  .fortes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .fortes span { font-size: 13px; background: #E6FFF4; color: #006E49; border-radius: 999px; padding: 5px 12px; }
+  .fortes span::before { content: "✓ "; font-weight: 700; }
+
   .expired { display: none; }
   html.expirado .cover, html.expirado main, html.expirado footer.main-foot { display: none; }
   html.expirado .expired { display: flex; min-height: 100vh; align-items: center; background: var(--black); color: var(--white); }
@@ -306,6 +312,7 @@
         <div><div class="score-label">critérios que precisam de atenção</div><div class="num">6<small> de 19</small></div></div>
         <div><span class="pill reg">regular</span><p>Verificamos 19 critérios do perfil. Os 13 básicos estão em dia, como endereço, horário e nota 5,0. 6 precisam de atenção. Abaixo, os 5 que mais pesam.</p></div>
       </div>
+      <div class="fortes"><span>nota 5,0</span><span>avaliação nova há 15 dias</span><span>descrição completa</span><span>site, telefone e horário no perfil</span></div>
       <div class="items">
         <div class="item"><h3>Avaliações respondidas<span class="star">guia abaixo</span></h3><div class="val now">hoje<b>46 de 100</b></div><div class="val">referência<b>50% ou mais</b></div></div>
         <div class="item"><h3>Postagens no Google</h3><div class="val now">hoje<b>há 1.853 dias</b></div><div class="val">referência<b>até 15 dias</b></div></div>
@@ -325,20 +332,20 @@
         <div class="guide">
           <div class="n">1</div>
           <h3>responder avaliações</h3>
-          <ol class="steps"><li>No painel, clique em <b>Avaliações</b>.</li><li>Responda as 54 que estão sem resposta, pelo primeiro nome do paciente.</li><li>Daqui pra frente, responda cada nova em até 48 horas.</li></ol>
-          <div class="tip"><p><b>Cuidado:</b> não cite o tratamento nem dados do paciente. A resposta é pública.</p></div>
+          <ol class="steps"><li>No painel, clique em <b>Avaliações</b>.</li><li>Responda as 54 que estão sem resposta, pelo primeiro nome do paciente, sem citar o tratamento.</li><li>Daqui pra frente, responda cada nova em até 48 horas.</li></ol>
+          <div class="tip"><p class="meta"><b>Deu certo quando</b> nenhuma avaliação recente fica sem resposta por mais de 2 dias.</p></div>
         </div>
         <div class="guide">
           <div class="n">2</div>
           <h3>pedir avaliações</h3>
           <ol class="steps"><li>No painel, clique em <b>Pedir avaliações</b> e copie o link.</li><li>Peça pessoalmente na consulta em que o paciente vê o resultado.</li><li>Mande o link pelo WhatsApp no mesmo dia.</li></ol>
-          <div class="tip"><p><b>Cuidado:</b> não ofereça desconto ou brinde em troca. É proibido pelo Google.</p></div>
+          <div class="tip"><p class="meta"><b>Deu certo quando</b> chega pelo menos uma avaliação nova por semana.</p></div>
         </div>
         <div class="guide">
           <div class="n">3</div>
           <h3>adicionar fotos</h3>
           <ol class="steps"><li>No painel, clique em <b>Adicionar foto</b>.</li><li>Comece com fachada, recepção, consultórios e equipe.</li><li>Depois, adicione algumas por semana.</li></ol>
-          <div class="tip"><p><b>Dica:</b> foto real de celular, com boa luz, vale mais que banco de imagem.</p></div>
+          <div class="tip"><p class="meta"><b>Deu certo quando</b> o perfil passa de 100 fotos e ganha fotos novas todo mês.</p></div>
         </div>
       </div>
     </div>
