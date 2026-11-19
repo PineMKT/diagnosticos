@@ -2,10 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="no-referrer">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
 <title>Método APEX · Implantes Day Odontologia</title>
 <meta name="description" content="Método APEX da Pine: marketing e comercial trabalhando juntos para dentistas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -221,15 +220,6 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
     <div class="a" style="right:128px;top:572px;font:400 16px/1 var(--body)">2026</div>
   </section>
 
-  <!-- 02 me conte -->
-  <section class="slide" aria-label="Me conte sobre você e sua clínica">
-    <div class="tag">antes de começar</div>
-    <svg class="corner"><use href="#arrow"/></svg>
-    <h2 class="a h1" style="left:138px;top:340px">Me conte sobre <span class="g">você</span> e sua <span class="g">clínica</span></h2>
-    <div class="a chips" style="left:138px;top:407px;width:800px">
-      <div class="chip">como funciona hoje?</div><div class="chip">o que não funciona bem?</div><div class="chip">o que isso causa?</div><div class="chip">o que mudaria se isso fosse resolvido?</div>
-    </div>
-  </section>
 
   <!-- 03 Akira -->
   <section class="slide" aria-label="Quem somos">
@@ -249,25 +239,10 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
     </div>
   </section>
 
-  <!-- 04 dores -->
-  <section class="slide" aria-label="Problemas">
-    <div class="tag">isso soa familiar?</div>
-    <svg class="corner"><use href="#arrow"/></svg>
-    <h2 class="a h1" style="left:138px;top:340px">Algum desses <span class="g">problemas</span> acontece por aí?</h2>
-    <div class="a chips" style="left:138px;top:407px;width:860px">
-      <div class="chip">refém da indicação</div><div class="chip">muito curioso, pouco paciente</div><div class="chip">muita falta na avaliação</div><div class="chip">avaliação que não fecha</div>
-    </div>
-  </section>
 
   <!-- 05 diagnóstico: slides gerados a partir do bloco DIAGNÓSTICO no fim do arquivo -->
   <template id="diag-slot"></template>
 
-  <!-- 06 marketing -->
-  <section class="slide" aria-label="O que é marketing">
-    <div class="tag">uma pergunta rápida</div>
-    <svg class="corner"><use href="#arrow"/></svg>
-    <h2 class="a h1" style="left:138px;top:340px">Pra você, o que é marketing?</h2>
-  </section>
 
   <!-- 07 o método -->
   <section class="slide" aria-label="O método">
@@ -447,21 +422,21 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
 {
   "clinica": "Implantes Day Odontologia",
   "local": "Americana, SP",
-  "coleta": "17/11/2026",
+  "coleta": "19/11/2026",
   "portas": [
     {
       "id": "encontrado",
       "nome": "Ser encontrado",
       "canal": "Google Meu Negócio",
-      "status": "critico",
-      "resumo": "em “dentista”, fora da 1ª página em 96% da região"
+      "status": "atencao",
+      "resumo": "bem em “implante”, fora da 1ª página em “dentista”"
     },
     {
       "id": "lembrado",
       "nome": "Ser lembrado",
       "canal": "Instagram",
-      "status": "pendente",
-      "resumo": "a coletar"
+      "status": "atencao",
+      "resumo": "posta em ondas: 64 dias parado no ano e nenhum caso desde julho"
     },
     {
       "id": "escolhido",
@@ -471,18 +446,11 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
       "resumo": "sem anúncios ativos e sem site próprio no perfil"
     },
     {
-      "id": "converter",
-      "nome": "Converter",
-      "canal": "Atendimento no WhatsApp",
-      "status": "pendente",
-      "resumo": "a coletar"
-    },
-    {
       "id": "voltar",
       "nome": "Voltar",
       "canal": "Retorno de pacientes",
       "status": "pendente",
-      "resumo": "a coletar"
+      "resumo": "retorno de pacientes: vemos juntos na conversa"
     },
     {
       "id": "indicar",
@@ -496,9 +464,37 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
     {
       "porta": "encontrado",
       "tipo": "mapa",
-      "etapa": "posição no mapa",
-      "titulo": "Hoje, quase ninguém da região <span class='g'>te encontra<\/span>",
-      "canal": "Pesquisamos “dentista” em 25 pontos num raio de 10 km da clínica, como um paciente buscando no celular, e anotamos a posição dela em cada um.",
+      "etapa": "implante dentário",
+      "titulo": "Em implante, a clínica <span class='g'>domina o bairro</span>",
+      "canal": "Pesquisamos “implante dentário” em 25 pontos num raio de 10 km da clínica, como um paciente buscando no celular, e anotamos a posição dela em cada um.",
+      "fonte": "Google Maps · coleta em 17/11/2026",
+      "mapa": "assets/mapa-implantes-day.jpg",
+      "stats": [
+        {
+          "num": "6 de 25",
+          "txt": "pontos no top 3, a 2ª clínica que mais aparece",
+          "status": "ok"
+        },
+        {
+          "num": "14º",
+          "txt": "posição média: fim da primeira página"
+        },
+        {
+          "num": "13",
+          "txt": "pontos fora da primeira página (52% da região)"
+        },
+        {
+          "num": "138",
+          "txt": "concorrentes disputando a mesma busca"
+        }
+      ]
+    },
+    {
+      "porta": "encontrado",
+      "tipo": "mapa",
+      "etapa": "busca geral",
+      "titulo": "No geral, <span class='g'>quase ninguém</span> te encontra",
+      "canal": "Agora a busca “dentista”, a mais comum, nos mesmos 25 pontos.",
       "fonte": "Google Maps · coleta em 17/11/2026",
       "mapa": "assets/mapa-implantes-day-dentista.jpg",
       "stats": [
@@ -525,7 +521,7 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
       "porta": "encontrado",
       "tipo": "ranking",
       "etapa": "concorrência",
-      "titulo": "Quem está ficando com <span class='g'>esses pacientes<\/span>",
+      "titulo": "Quem está ficando com <span class='g'>esses pacientes</span>",
       "canal": "243 negócios apareceram na busca “dentista”. Estes são os que mais aparecem entre os 3 primeiros.",
       "fonte": "Google Maps · coleta em 17/11/2026",
       "concorrentes": [
@@ -565,36 +561,8 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
     },
     {
       "porta": "encontrado",
-      "tipo": "mapa",
-      "etapa": "posição no mapa · implante",
-      "titulo": "Em implante, a clínica <span class='g'>domina o bairro<\/span>",
-      "canal": "Pesquisamos “implante dentário” em 25 pontos num raio de 10 km da clínica, como um paciente buscando no celular, e anotamos a posição dela em cada um.",
-      "fonte": "Google Maps · coleta em 17/11/2026",
-      "mapa": "assets/mapa-implantes-day.jpg",
-      "stats": [
-        {
-          "num": "6 de 25",
-          "txt": "pontos no top 3, a 2ª clínica que mais aparece",
-          "status": "ok"
-        },
-        {
-          "num": "14º",
-          "txt": "posição média: fim da primeira página"
-        },
-        {
-          "num": "13",
-          "txt": "pontos fora da primeira página (52% da região)"
-        },
-        {
-          "num": "138",
-          "txt": "concorrentes disputando a mesma busca"
-        }
-      ]
-    },
-    {
-      "porta": "encontrado",
       "etapa": "perfil no Google",
-      "titulo": "O perfil está montado, <span class='g'>mas parado<\/span>",
+      "titulo": "O perfil está montado, <span class='g'>mas parado</span>",
       "canal": "Verificamos 12 itens da ficha no Google Meu Negócio.",
       "fonte": "ficha pública no Google · 17/11/2026",
       "num": "6 de 12",
@@ -640,8 +608,48 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
       "tight": true
     },
     {
+      "porta": "lembrado",
+      "titulo": "Ser <span class='g'>lembrado</span>",
+      "canal": "Instagram · @implantesdayamericana",
+      "fonte": "Instagram · coleta em 19/11/2026",
+      "num": "2.120",
+      "txt": "seguidores, mas o perfil posta em ondas: ficou 64 dias parado entre julho e setembro. Os casos de pacientes têm o dobro de curtidas, e o último foi em julho.",
+      "itens": [
+        {
+          "nome": "Última publicação",
+          "hoje": "há 15 dias",
+          "ref": "até 3 dias",
+          "status": "atencao"
+        },
+        {
+          "nome": "Maior pausa no ano",
+          "hoje": "64 dias",
+          "ref": "até 7 dias",
+          "status": "critico"
+        },
+        {
+          "nome": "Casos de pacientes",
+          "hoje": "último em julho",
+          "ref": "todo mês",
+          "status": "critico"
+        },
+        {
+          "nome": "Conteúdo educativo",
+          "hoje": "protocolo, dentadura",
+          "ref": "toda semana",
+          "status": "ok"
+        },
+        {
+          "nome": "WhatsApp na bio",
+          "hoje": "link direto",
+          "ref": "sim",
+          "status": "ok"
+        }
+      ]
+    },
+    {
       "porta": "escolhido",
-      "titulo": "Ser <span class='g'>escolhido<\/span>",
+      "titulo": "Ser <span class='g'>escolhido</span>",
       "canal": "Site e anúncios",
       "fonte": "bibliotecas de anúncios da Meta e do Google e busca no Google · 17/11/2026",
       "num": "0",
@@ -674,44 +682,10 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
       ]
     },
     {
-      "porta": "converter",
-      "titulo": "<span class='g'>Converter<\/span>",
-      "canal": "Atendimento no WhatsApp · teste como paciente",
-      "fonte": "a coletar",
-      "num": "—",
-      "txt": "Teste como paciente no WhatsApp da clínica.",
-      "itens": [
-        {
-          "nome": "Primeira resposta",
-          "hoje": "—",
-          "ref": "até 5 min",
-          "status": "pendente"
-        },
-        {
-          "nome": "Convidou pra avaliação",
-          "hoje": "—",
-          "ref": "sim",
-          "status": "pendente"
-        },
-        {
-          "nome": "Ofereceu horários",
-          "hoje": "—",
-          "ref": "2 opções",
-          "status": "pendente"
-        },
-        {
-          "nome": "Retomou a conversa",
-          "hoje": "—",
-          "ref": "em até 24 h",
-          "status": "pendente"
-        }
-      ]
-    },
-    {
       "porta": "indicar",
       "tipo": "avaliacoes",
       "etapa": "avaliações",
-      "titulo": "Os pacientes elogiam, <span class='g'>mas ninguém responde<\/span>",
+      "titulo": "Os pacientes elogiam, <span class='g'>mas ninguém responde</span>",
       "canal": "Avaliações públicas no Google: as 100 mais recentes, de 30/08/2024 a 13/11/2026.",
       "fonte": "Google · 17/11/2026",
       "num": "4,9",
@@ -758,9 +732,9 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
     }
   ],
   "gargalo": {
-    "porta": "encontrado",
-    "titulo": "Mais avaliações que os líderes, e mesmo assim invisível",
-    "txt": "Em “dentista”, fica fora da 1ª página em 96% da região, mesmo com mais avaliações que os 3 líderes. E só 18% das avaliações têm resposta."
+    "porta": "escolhido",
+    "titulo": "Perde em ser lembrado e escolhido",
+    "txt": "Bem colocado em “implante dentário”, mas some em “dentista”. E quem chega encontra um Instagram sem constância e nenhum anúncio rodando."
   }
 }
 </script>
@@ -768,17 +742,22 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
 (function(){
   const D=JSON.parse(document.getElementById('diag-data').textContent);
   const slot=document.getElementById('diag-slot');
-  const lbl={ok:'ok',atencao:'atenção',critico:'crítico',pendente:'a coletar'};
+  const lbl={ok:'ok',atencao:'atenção',critico:'crítico',pendente:'na conversa'};
   const st=s=>`<span class="st ${s}">${lbl[s]}</span>`;
   const esc=s=>String(s);
   const head=(tag,total,i)=>`<div class="tag">${tag}</div><svg class="corner"><use href="#arrow"/></svg>`;
-  const journey=cur=>`<div class="journey">${D.portas.map(p=>`<span class="${(p.id===cur||(cur==='voltar'&&p.id==='indicar'))?'on':''}">${p.nome.toLowerCase()}</span>`).join('')}</div>`;
+  const NP=D.portas.length, gcols=`grid-template-columns:repeat(${NP},1fr);width:1014px`;
+  const NUM=['zero','uma','duas','três','quatro','cinco','seis','sete'];
+  // nome da clínica na capa
+  const capa=document.querySelector('.slide[aria-label="Capa"]');
+  if(capa&&!capa.querySelector('.capa-cliente'))capa.insertAdjacentHTML('beforeend',`<div class="a capa-cliente" style="left:138px;top:236px;font:500 22px/1.2 var(--display);color:var(--black)">${esc(D.clinica)}</div>`);
+  const journey=cur=>`<div class="journey" style="grid-template-columns:repeat(${NP},1fr)">${D.portas.map(p=>`<span class="${(p.id===cur||(cur==='voltar'&&p.id==='indicar'))?'on':''}">${p.nome.toLowerCase()}</span>`).join('')}</div>`;
   const out=[];
   // abertura: as 6 portas
   out.push(`<section class="slide" aria-label="Diagnóstico">
     ${head('o que a internet diz sobre a sua clínica?')}
-    <h2 class="a h1" style="left:138px;top:160px;width:900px">Da busca no Google à indicação, o paciente passa por <span class="g">6 portas</span></h2>
-    <div class="doors">${D.portas.map((p,k)=>`<div class="door"><div class="n">0${k+1}</div><h4>${p.nome}</h4><p>${p.canal}</p></div>`).join('')}</div>
+    <h2 class="a h1" style="left:138px;top:160px;width:900px">Da busca no Google à indicação, o paciente passa por <span class="g">${NP} portas</span></h2>
+    <div class="doors" style="${gcols}">${D.portas.map((p,k)=>`<div class="door"><div class="n">0${k+1}</div><h4>${p.nome}</h4><p>${p.canal}</p></div>`).join('')}</div>
     <p class="a" style="left:138px;top:540px;font:400 18px/1.4 var(--body);color:var(--muted)">Olhamos cada uma delas na ${esc(D.clinica)}.</p>
   </section>`);
   // detalhes (uma porta pode ter vários slides: tipo "mapa", "ranking" ou tabela)
@@ -810,7 +789,7 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
   out.push(`<section class="slide" aria-label="Diagnóstico: resumo">
     ${head('diagnóstico · resumo')}
     <h2 class="a h1" style="left:138px;top:160px;width:900px">Onde a clínica está <span class="g">perdendo pacientes</span></h2>
-    <div class="doors" style="top:290px">${D.portas.map((p,k)=>`<div style="height:226px" class="door ${p.id===D.gargalo.porta?'big':''}"><div class="n">0${k+1}</div><h4 style="margin-top:22px">${p.nome}</h4><p>${p.resumo}</p><span class="st ${p.status}">${lbl[p.status]}</span></div>`).join('')}</div>
+    <div class="doors" style="top:290px;${gcols}">${D.portas.map((p,k)=>`<div style="height:226px" class="door ${p.id===D.gargalo.porta?'big':''}"><div class="n">0${k+1}</div><h4 style="margin-top:22px">${p.nome}</h4><p>${p.resumo}</p><span class="st ${p.status}">${lbl[p.status]}</span></div>`).join('')}</div>
     <div class="callout"><div><small>maior oportunidade</small><b>${D.gargalo.titulo}</b></div><p>${D.gargalo.txt}</p></div>
   </section>`);
   slot.insertAdjacentHTML('beforebegin',out.join(''));
