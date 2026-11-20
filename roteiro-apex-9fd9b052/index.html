@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Roteiro de perguntas · APEX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#00F5A0; --green-ink:#00754E; --green-bg:#E6FFF4; --black:#0A0A0A; --white:#FFF; --g50:#F4F4F4; --g200:#E0E0E0; --g400:#9A9A9A; --g600:#555;
+    --display:"Space Grotesk",system-ui,sans-serif; --body:"Satoshi",system-ui,sans-serif; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--black); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 16px; }
+  header { background:var(--black); color:var(--white); padding:40px 0 32px; }
+  .eyebrow { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); }
+  h1 { font-family:var(--display); font-weight:600; font-size:40px; letter-spacing:-.02em; line-height:1.05; margin-top:10px; }
+  header p { color:#BDBDBD; margin-top:14px; max-width:680px; }
+  nav.toc { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+  nav.toc a { font-size:13px; font-weight:700; color:var(--white); text-decoration:none; border:1px solid #333; border-radius:999px; padding:6px 12px; }
+  nav.toc a:hover { background:var(--green); color:var(--black); border-color:var(--green); }
+  main { padding:8px 0 64px; }
+  section { padding-top:40px; }
+  h2 { font-family:var(--display); font-weight:600; font-size:26px; letter-spacing:-.01em; display:flex; align-items:baseline; gap:12px; }
+  h2 .n { font-size:15px; color:var(--green-ink); background:var(--green-bg); border-radius:999px; padding:3px 10px; }
+  h2 .t { font-family:var(--body); font-size:14px; font-weight:500; color:var(--g600); }
+  h3 { font-size:15px; font-weight:700; margin-top:22px; }
+  p { margin-top:10px; }
+  ul, ol { margin-top:10px; padding-left:22px; }
+  li { margin-top:6px; }
+  li::marker { color:var(--green-ink); font-weight:700; }
+  .q { font-weight:500; }
+  .rules { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px; }
+  .rule { background:var(--g50); border-radius:16px; padding:18px; }
+  .rule b { font-family:var(--display); font-size:22px; color:var(--green-ink); display:block; }
+  .rule p { margin-top:6px; font-size:15px; }
+  blockquote { margin-top:14px; border-left:3px solid var(--green); background:var(--g50); border-radius:0 14px 14px 0; padding:16px 20px; font-size:16.5px; }
+  .note { margin-top:14px; font-size:14.5px; color:var(--g600); }
+  .key { margin-top:16px; background:var(--black); color:var(--white); border-radius:16px; padding:18px 20px; }
+  .key b { color:var(--green); }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:15px; }
+  th { text-align:left; font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--g600); padding:10px 12px; border-bottom:1px solid var(--g200); }
+  td { padding:14px 12px; border-bottom:1px solid var(--g200); vertical-align:top; }
+  td:first-child { font-weight:700; width:20%; }
+  td:last-child { width:34%; font-weight:500; }
+  td:last-child.none { color:var(--g400); font-weight:400; }
+  tr.hl td { background:var(--green-bg); }
+  .obj { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .card { border:1px solid var(--g200); border-radius:16px; padding:16px 18px; }
+  .card h4 { font-size:14px; font-weight:700; }
+  .card p { margin-top:6px; font-size:15px; }
+  footer { color:var(--g400); font-size:12px; padding:0 0 32px; }
+  @media (max-width:720px) {
+    h1 { font-size:30px; }
+    .rules, .obj { grid-template-columns:1fr; }
+    thead { display:none; }
+    table, tbody, tr, td { display:block; width:100% !important; }
+    tr { border:1px solid var(--g200); border-radius:14px; margin-top:12px; padding:6px 0; }
+    td { border:none; padding:6px 14px; }
+    td:nth-child(2)::before { content:"Ponto de atenção"; display:block; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--g400); }
+    td:nth-child(3)::before { content:"Pergunta"; display:block; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--g400); }
+  }
+  @media print { header { background:none; color:var(--black); } header p { color:var(--g600); } nav.toc { display:none; } section { break-inside:avoid-page; } }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">Pine · uso interno · método APEX</div>
+  <h1>Roteiro de perguntas da reunião</h1>
+  <p>Baseado no roleplay de 12/11/2026 com a Lud (mentoria Ultra) e na lista de perguntas sugerida por ela. Segue a ordem da apresentação: capa, sócios, diagnóstico, método, informações, investimento e próximos passos.</p>
+  <nav class="toc" aria-label="Seções">
+    <a href="#antes">Antes</a><a href="#rapport">1. Rapport</a><a href="#descoberta">2. Descoberta</a><a href="#slides">3. Slide a slide</a><a href="#sinceridade">4. Acordo de sinceridade</a><a href="#fechamento">5. Fechamento</a><a href="#depois">6. Depois</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="rules">
+    <div class="rule"><b>01</b><p>Na descoberta, o dentista fala mais que você. Pergunte e anote.</p></div>
+    <div class="rule"><b>02</b><p>Devolva o que ele disse como afirmação: “lembra que o senhor disse que...”.</p></div>
+    <div class="rule"><b>03</b><p>Narrativa afirmativa no diagnóstico: “você está perdendo”, nunca “imagina se”.</p></div>
+  </div>
+
+  <section id="antes">
+    <h2>Antes da reunião</h2>
+    <ul>
+      <li>Confirmar se existe sócio ou outro decisor. Se existir, pedir que ele esteja junto.</li>
+      <li>Diagnóstico pronto. Se o cliente oculto não foi feito, tirar o slide. “Vou fazer depois” pega mal.</li>
+      <li>Achar um ponto de conexão real: quem indicou, quem agendou, um grupo em comum. Se não existir, não forçar.</li>
+      <li>Caderno ou celular pra anotar: meta, dor principal e o que mudaria pra ele.</li>
+    </ul>
+  </section>
+
+  <section id="rapport">
+    <h2><span class="n">1</span>Rapport <span class="t">3 a 5 min, sem compartilhar a tela</span></h2>
+    <h3>Conexão (escolha 2 ou 3)</h3>
+    <ul class="q">
+      <li>“A [nome de quem agendou ou indicou] comentou que... Como vocês se conheceram?”</li>
+      <li>“Como está a agenda essa semana? Muita correria?”</li>
+      <li>“Como surgiu a clínica? Você começou do zero aqui?”</li>
+      <li>“O que te levou pra essa especialidade?”</li>
+      <li>“Você atende todos os dias aqui ou divide com outro lugar?”</li>
+    </ul>
+    <h3>Alinhamento (fala sua, curta)</h3>
+    <blockquote>“A ideia é a gente conversar uns 50 minutos a 1 hora. Vou te fazer algumas perguntas, porque montamos um diagnóstico da clínica, mas faltam dados que só você tem. Nem sei ainda se vou te apresentar o nosso método: primeiro preciso ver se a sua necessidade casa com o que a gente faz. Se não casar, te deixo algumas dicas e seguimos amigos.”</blockquote>
+    <h3>Perguntas de confirmação</h3>
+    <ul class="q">
+      <li>“Esse tempo funciona pra você?”</li>
+      <li>“Além de você, mais alguém participa dessa decisão?” Se sim: “Faz sentido ele estar com a gente?”</li>
+    </ul>
+  </section>
+
+  <section id="descoberta">
+    <h2><span class="n">2</span>Descoberta <span class="t">15 a 20 min, antes da apresentação</span></h2>
+    <p class="note">Pule o que o diagnóstico já responde (Google, Instagram, anúncios).</p>
+    <h3>A clínica hoje</h3>
+    <ol class="q">
+      <li>Há quanto tempo a clínica existe? Quantos dentistas e cadeiras ativas?</li>
+      <li>Quais os carros-chefe? Qual procedimento você mais quer vender nos próximos 6 meses?</li>
+      <li>Atende convênio, particular ou os dois?</li>
+    </ol>
+    <h3>Números e meta</h3>
+    <ol class="q" start="4">
+      <li>Qual o faturamento médio hoje e a meta pros próximos 12 meses? Se travar: “qual o ticket médio e quantos tratamentos vocês fecham por mês?”</li>
+      <li>O que bater essa meta mudaria pra você?</li>
+    </ol>
+    <h3>Agenda e conversão</h3>
+    <ol class="q" start="6">
+      <li>Quantas avaliações vocês fazem por mês e quantas viram tratamento?</li>
+      <li>Tem horário ocioso na agenda?</li>
+    </ol>
+    <h3>De onde vêm os pacientes</h3>
+    <ol class="q" start="8">
+      <li>De onde vêm os pacientes novos hoje? Já trabalharam com agência ou tráfego? O que funcionou e o que não?</li>
+    </ol>
+    <h3>Atendimento</h3>
+    <ol class="q" start="9">
+      <li>Quem responde o WhatsApp e em quanto tempo? Existe roteiro e follow-up de quem fez avaliação e não fechou?</li>
+    </ol>
+    <h3>Base de pacientes</h3>
+    <ol class="q" start="10">
+      <li>A base está organizada? Fazem campanha de retorno ou de indicação?</li>
+    </ol>
+    <h3>Urgência e decisão</h3>
+    <ol class="q" start="11">
+      <li>Se nada mudar nos próximos 6 meses, o que acontece? Por que resolver agora?</li>
+      <li>Quem decide além de você? Qual investimento mensal você considera viável pra marketing?</li>
+    </ol>
+    <p class="note"><b>Reserva</b> (se sobrar tempo ou a conversa puxar): quanto custa hoje trazer um paciente até a avaliação, como funciona o parcelamento, qual a principal objeção dos pacientes, quantos pacientes inativos existem na base.</p>
+    <div class="key">Antes de abrir a apresentação, anote três coisas: <b>a meta</b>, <b>a dor principal</b> e <b>o que mudaria pra ele</b>. São elas que você devolve no resumo e no fechamento.</div>
+  </section>
+
+  <section id="slides">
+    <h2><span class="n">3</span>Apresentação, slide a slide</h2>
+    <table>
+      <thead><tr><th>Slide</th><th>Ponto de atenção</th><th>Pergunta</th></tr></thead>
+      <tbody>
+        <tr><td>Capa</td><td>Abre a tela só agora, depois da descoberta.</td><td class="none">nenhuma</td></tr>
+        <tr><td>Quem somos</td><td>Postura de especialista. Autoridade de nicho: anúncio de odonto tem regra do CFO, e agência especialista não sobe campanha que fere as regras. Se tiver, mostrar print de case.</td><td>“Vocês já tiveram anúncio reprovado ou dúvida com regra do CFO?”</td></tr>
+        <tr><td>Diagnóstico: as portas</td><td>O diagnóstico foi feito de graça: dá moral pra conduzir.</td><td>“Antes de eu mostrar: em qual dessas portas você acha que está perdendo mais paciente hoje?”</td></tr>
+        <tr><td>Ser encontrado: tratamento forte</td><td>Começar pelo que funciona (ex.: implante no top 3). Gera confiança no resto.</td><td>“Quanto dos seus pacientes chegam procurando esse tratamento?”</td></tr>
+        <tr><td>Ser encontrado: busca geral</td><td>Afirmativo: “aqui você está perdendo paciente”.</td><td>“Quando alguém procura só ‘dentista’ aqui na região, quem você acha que aparece?”</td></tr>
+        <tr><td>Concorrência</td><td>Quem lidera costuma ter menos avaliações: a diferença é como o perfil é trabalhado.</td><td>“Conhece esses concorrentes? O que você acha que eles fazem diferente?”</td></tr>
+        <tr><td>Perfil no Google</td><td>Perfil montado e parado.</td><td>“Quem cuida do Google da clínica hoje?”</td></tr>
+        <tr><td>Ser lembrado</td><td>Elogiar o que está bom antes do ponto fraco.</td><td>“Quem faz o Instagram hoje? Os casos de paciente rendem mais, por que pararam de postar?”</td></tr>
+        <tr><td>Ser escolhido</td><td>Sem anúncio, quem procura não acha a clínica. Site com aviso ou link encurtado tira confiança.</td><td>“Já anunciaram antes? Como foi?”</td></tr>
+        <tr><td>Converter <br><small style="font-weight:400;color:var(--g600)">só se o cliente oculto foi feito</small></td><td>Elogiar quem atende, sem expor ninguém. O ponto é processo, não pessoa.</td><td>“Hoje, o que acontece com quem pede informação e some?”</td></tr>
+        <tr><td>Indicar e avaliações</td><td>Nota alta e pouca resposta: reputação que não é aproveitada.</td><td>“Vocês pedem avaliação? Em que momento? Quem responde?”</td></tr>
+        <tr class="hl"><td>Resumo</td><td>Quantificar o dinheiro na mesa com os números da descoberta e ligar com a meta.</td><td>“Com ticket de R$ __ e __ pacientes a mais por mês, são R$ __ por mês. Isso te aproxima da meta de R$ __?”</td></tr>
+        <tr><td>Árvore do método</td><td>Da raiz ao fruto: marketing e comercial juntos.</td><td>“Faz sentido olhar a clínica assim, de ponta a ponta?”</td></tr>
+        <tr><td>Aquisição</td><td>Conteúdo do dia a dia: “é muito mais estratégico que alguém da sua equipe capture o dia a dia. Eu treino e oriento.”</td><td>“Tem alguém na equipe que gosta de gravar e postar?”</td></tr>
+        <tr><td>Plano comercial</td><td>Ligar com o que ele contou sobre WhatsApp e follow-up.</td><td>“Hoje, o que acontece com quem faz avaliação e não fecha?”</td></tr>
+        <tr><td>Experiência</td><td>Sem soar arrogante: “esses são os pontos pra formalizar um excelente atendimento. Não duvido que o seu trabalho seja excelente, mas preciso garantir o mesmo padrão em toda a equipe.”</td><td>“Como é a chegada do paciente no primeiro dia?”</td></tr>
+        <tr><td>Elemento X</td><td>A avaliação e a indicação voltam pra raiz e trazem paciente novo.</td><td>“Quantas indicações chegam por mês? Vocês estimulam?”</td></tr>
+        <tr><td>Informações importantes</td><td>“As contas são suas” como transparência: “é melhor você ter o domínio”. Sem citar problemas que já tivemos.</td><td class="none">nenhuma</td></tr>
+        <tr class="hl"><td>Investimento</td><td>Ver o fechamento, abaixo.</td><td>“É um sim ou um não?”</td></tr>
+        <tr><td>Próximos passos</td><td>Escassez real: onboarding de 2 clínicas por mês.</td><td>“Qual o melhor dia pra gente começar?”</td></tr>
+      </tbody>
+    </table>
+    <h3>Logo depois do resumo, antes do método</h3>
+    <ul class="q">
+      <li>“Você sabia que tinha todas essas oportunidades na mesa?”</li>
+      <li>“Se a gente olhasse cada detalhe disso, você acha que chegaria nos R$ __ da sua meta?”</li>
+    </ul>
+    <p class="note">Faça e espere a resposta. Silêncio é bom aqui.</p>
+  </section>
+
+  <section id="sinceridade">
+    <h2><span class="n">4</span>Acordo de sinceridade <span class="t">entre o resumo e o método</span></h2>
+    <blockquote>“Posso te pedir uma coisa antes de te mostrar como a gente trabalha? Vamos tirar o talvez. Se você gostar, me dá um sim, e eu viabilizo dentro do seu orçamento. Se não gostar, me diz com sinceridade, e a gente economiza o tempo dos dois, sem ficar mandando follow-up.”</blockquote>
+    <ul>
+      <li class="q">“Combinado?”</li>
+      <li>Espere o “combinado” em voz alta antes de abrir o método.</li>
+    </ul>
+  </section>
+
+  <section id="fechamento">
+    <h2><span class="n">5</span>Fechamento: faz sentido pra ele?</h2>
+    <h3>Depois do Elemento X</h3>
+    <ol>
+      <li>Visão de futuro, com as palavras dele: <span class="q">“Lembra que você falou que [meta / o que mudaria]? É aí que a gente quer chegar: fazer você sorrir com o faturamento da sua clínica.”</span></li>
+      <li class="q">“Faz sentido pra sua clínica?”</li>
+      <li class="q">“Ficou alguma dúvida sobre o método?”</li>
+      <li>Microcompromisso: <span class="q">“Se não fosse pelo valor, seria uma boa solução pra você?”</span></li>
+    </ol>
+    <h3>Depois do investimento</h3>
+    <ul>
+      <li class="q">“É um sim ou um não?”</li>
+      <li>Verba de anúncio: não somar tudo de cara. “O primeiro mês é organizar a casa. Começamos com R$ 500 a 600 e aumentamos quando estiver tracionando.”</li>
+    </ul>
+    <h3>Se ele travar</h3>
+    <div class="obj">
+      <div class="card"><h4>“Vou pensar”</h4><p>“Claro. Pra eu entender: é o valor ou alguma dúvida do método?” Combinar retorno no mesmo dia ou no dia seguinte, com horário.</p></div>
+      <div class="card"><h4>Valor</h4><p>Sem desconto, viabilizar. Ex.: os 2 primeiros meses num valor menor e a diferença diluída nos meses seguintes. Justificar pelo time e pelo escopo.</p></div>
+      <div class="card"><h4>“Vou ver com meu sócio”</h4><p>“O que você acha que ele vai perguntar? Vamos marcar 20 minutos com ele essa semana?”</p></div>
+      <div class="card"><h4>Carta na manga</h4><p>“Se assinar hoje, o primeiro pagamento fica pra daqui 10 a 15 dias. Faço isso porque acredito que você vai ser o meu próximo case.”</p></div>
+      <div class="card"><h4>Escassez real</h4><p>“A gente abre onboarding pra 2 clínicas por mês.”</p></div>
+    </div>
+  </section>
+
+  <section id="depois">
+    <h2><span class="n">6</span>Depois da reunião</h2>
+    <ul>
+      <li>Registrar meta, dor principal, decisor e objeções no CRM ou no ClickUp.</li>
+      <li>Mandar o retorno no horário combinado, nem antes, nem depois.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">Pine · roteiro interno, fora dos buscadores. Atualizado em 19/11/2026.</footer>
+</body>
+</html>
