@@ -32,8 +32,8 @@ html,body{height:100%}
 body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--black);-webkit-font-smoothing:antialiased}
 
 /* palco 1280x720, escalado pra caber na tela */
-.viewport{position:fixed;inset:0;display:grid;place-items:center}
-.stage{position:relative;width:1280px;height:720px;transform-origin:center center;background:var(--white);box-shadow:0 10px 40px rgba(0,0,0,.12);overflow:hidden}
+.viewport{position:fixed;inset:0;overflow:hidden}
+.stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center center;background:var(--white);box-shadow:0 10px 40px rgba(0,0,0,.12);overflow:hidden}
 .slide{position:absolute;inset:0;background:var(--white);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s .35s}
 .slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
 .a{position:absolute}
@@ -195,6 +195,8 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
 .q small{font:500 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;color:#00B87A}
 .q p{font:400 15px/1.35 var(--body);margin-top:6px}
 .alerta{position:absolute;left:606px;top:500px;width:546px;border-left:3px solid #D93025;padding:6px 14px;font:400 15px/1.4 var(--body);color:var(--muted-2)}
+.rotate{display:none;position:fixed;left:50%;top:calc(50% - 32vw - 44px);transform:translateX(-50%);padding:8px 14px;border-radius:999px;background:var(--ui-bg);color:var(--ui);font:500 13px/1 var(--body);white-space:nowrap;backdrop-filter:blur(8px)}
+@media (orientation:portrait) and (max-width:700px){.rotate{display:block}}
 </style>
 </head>
 <body>
@@ -395,6 +397,7 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
 </main>
 </div>
 
+<div class="rotate" aria-hidden="true">gire o celular pra ver maior</div>
 <div class="progress" id="progress"></div>
 <nav class="nav" aria-label="Navegação">
   <button id="prev" aria-label="Slide anterior"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
@@ -795,7 +798,7 @@ body{background:var(--page);overflow:hidden;font-family:var(--body);color:var(--
   let i=0;
   function fit(){
     const s=Math.min(window.innerWidth/1280, window.innerHeight/720);
-    stage.style.transform='scale('+s+')';
+    stage.style.transform='translate(-50%,-50%) scale('+s+')';
   }
   function go(n){
     i=Math.max(0,Math.min(slides.length-1,n));
