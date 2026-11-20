@@ -53,10 +53,17 @@
   .card { border:1px solid var(--g200); border-radius:16px; padding:16px 18px; }
   .card h4 { font-size:14px; font-weight:700; }
   .card p { margin-top:6px; font-size:15px; }
+  .spin { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .sp { border:1px solid var(--g200); border-radius:16px; padding:18px; position:relative; }
+  .sp.hot { border-color:var(--green); background:#F6FFFB; }
+  .sp .l { position:absolute; right:16px; top:12px; font-family:var(--display); font-weight:600; font-size:34px; line-height:1; color:var(--green); }
+  .sp h4 { font-family:var(--display); font-size:18px; font-weight:600; }
+  .sp .why { margin-top:4px; font-size:14px; color:var(--g600); padding-right:30px; }
+  .sp ul { margin-top:8px; font-size:15px; }
   footer { color:var(--g400); font-size:12px; padding:0 0 32px; }
   @media (max-width:720px) {
     h1 { font-size:30px; }
-    .rules, .obj { grid-template-columns:1fr; }
+    .rules, .obj, .spin { grid-template-columns:1fr; }
     thead { display:none; }
     table, tbody, tr, td { display:block; width:100% !important; }
     tr { border:1px solid var(--g200); border-radius:14px; margin-top:12px; padding:6px 0; }
@@ -73,7 +80,7 @@
   <h1>Roteiro de perguntas da reunião</h1>
   <p>Baseado no roleplay de 12/11/2026 com a Lud (mentoria Ultra) e na lista de perguntas sugerida por ela. Segue a ordem da apresentação: capa, sócios, diagnóstico, método, informações, investimento e próximos passos.</p>
   <nav class="toc" aria-label="Seções">
-    <a href="#antes">Antes</a><a href="#rapport">1. Rapport</a><a href="#descoberta">2. Descoberta</a><a href="#slides">3. Slide a slide</a><a href="#sinceridade">4. Acordo de sinceridade</a><a href="#fechamento">5. Fechamento</a><a href="#depois">6. Depois</a>
+    <a href="#spin">SPIN</a><a href="#antes">Antes</a><a href="#rapport">1. Rapport</a><a href="#descoberta">2. Descoberta</a><a href="#slides">3. Slide a slide</a><a href="#sinceridade">4. Acordo de sinceridade</a><a href="#fechamento">5. Fechamento</a><a href="#depois">6. Depois</a>
   </nav>
 </div></header>
 
@@ -83,6 +90,22 @@
     <div class="rule"><b>02</b><p>Devolva o que ele disse como afirmação: “lembra que o senhor disse que...”.</p></div>
     <div class="rule"><b>03</b><p>Narrativa afirmativa no diagnóstico: “você está perdendo”, nunca “imagina se”.</p></div>
   </div>
+
+  <section id="spin">
+    <h2>Perguntas SPIN</h2>
+    <p>A descoberta segue o SPIN: <b>Situação</b> curta, a maior parte do tempo em <b>Problema</b> e <b>Implicação</b>, e a <b>Necessidade de solução</b> saindo da boca dele, não da sua.</p>
+    <div class="spin">
+      <div class="sp"><span class="l">S</span><h4>Situação</h4><p class="why">Entender o cenário. Curta: o diagnóstico já responde parte.</p>
+        <ul class="q"><li>“Há quanto tempo a clínica existe? Quantas cadeiras?”</li><li>“Qual o carro-chefe?”</li><li>“Qual o faturamento hoje e a meta?”</li><li>“De onde vêm os pacientes novos?”</li><li>“Quem responde o WhatsApp?”</li></ul></div>
+      <div class="sp hot"><span class="l">P</span><h4>Problema</h4><p class="why">Fazer ele falar da dor com as próprias palavras.</p>
+        <ul class="q"><li>“O que mais te incomoda hoje na captação de pacientes?”</li><li>“Tem mês que a agenda fica vazia? Por quê?”</li><li>“Quantas avaliações por mês não viram tratamento?”</li><li>“O que não funcionou quando vocês tentaram agência ou tráfego?”</li></ul></div>
+      <div class="sp hot"><span class="l">I</span><h4>Implicação</h4><p class="why">Mostrar o tamanho do problema. É o que gera urgência.</p>
+        <ul class="q"><li>“Quanto custa uma cadeira parada por um dia?”</li><li>“Se 5 avaliações por mês não fecham, quanto isso dá no ano?”</li><li>“Como isso afeta seus planos, como a segunda unidade ou ficar menos tempo na cadeira?”</li><li>“Se nada mudar nos próximos 6 meses, o que acontece?”</li></ul></div>
+      <div class="sp"><span class="l">N</span><h4>Necessidade de solução</h4><p class="why">Ele mesmo diz o valor de resolver.</p>
+        <ul class="q"><li>“O que bater essa meta mudaria pra você?”</li><li>“Se a agenda enchesse com paciente de implante, o que mudaria pra clínica?”</li><li>“O que precisaria acontecer pra você considerar isso resolvido?”</li><li>“Se a gente olhasse cada detalhe disso, você chegaria na sua meta?”</li></ul></div>
+    </div>
+    <p class="note">As 12 perguntas da descoberta (seção 2) já cobrem a Situação. Use as de Problema e Implicação pra aprofundar cada resposta, antes de passar pra próxima.</p>
+  </section>
 
   <section id="antes">
     <h2>Antes da reunião</h2>
